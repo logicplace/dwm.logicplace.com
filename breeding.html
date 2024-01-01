@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Dragon Warrior Monsters - Breeding</title>
+	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="css/breeding.css">
+</head>
+<body>
+<div class="side-menu">
+	<ul>
+		<li><a href="#compat-calc">Make personalities compatible</a></li>
+		<li><a href="#compat-chart">Personality compatibility chart</a></li>
+	</ul>
+</div>
+<div class="body">
+	<h1>Breeding information</h1>
+	<h2 id="compat-calc">Make personalities compatible</h2>
+	<div class="compat-calc">
+		<input id="cc-pedigree" list="personalities" placeholder="Pedigree's personality" />
+		<input id="cc-other" list="personalities" placeholder="Other mon's personality" />
+	</div>
+	<div class="compat-calc-result"></div>
+	<h2 id="compat-chart">Personality compatibility chart</h2>
+	<div id="breeding-table"></div>
+	<h2 id="personality-table">Personality table</h2>
+	<div class="personality-table"></div>
+	<div class="book-table"></div>
+	<datalist id="personalities"></datalist>
+	<script type="module">
+		import {
+			populate_personality_suggestions,	
+			generate_breeding_table,
+			generate_personality_table,
+			generate_book_table,
+			listen_compat_calc
+		} from "./js/breeding.js"
+		populate_personality_suggestions("#personalities");
+		generate_breeding_table("#breeding-table");
+		generate_personality_table(".personality-table");
+		generate_book_table(".book-table");
+		listen_compat_calc("#cc-pedigree", "#cc-other", ".compat-calc-result");
+	</script>
+</div>
+</body>
+</html>

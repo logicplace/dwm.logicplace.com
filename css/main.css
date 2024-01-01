@@ -1,0 +1,32 @@
+html {
+	color: rgb(230, 210, 186);
+	background-color: #322;
+}
+
+.body {
+	padding: 0 15px;
+	background-color: #322;
+	max-width: 800px;
+	margin: 0 auto;
+}
+
+.side-menu {
+	padding: 5px;
+	position: fixed;
+	height: 50%;
+	z-index: -1;
+	
+	background-color: rgb(28, 25, 16);
+	border: 2px dashed darkblue;
+	border-radius: 20px;
+}
+
+.side-menu ul {
+	padding: 0px;
+	margin: 5px;
+	list-style: none;
+}
+
+.side-menu li {
+	margin-bottom: 10px;
+}
