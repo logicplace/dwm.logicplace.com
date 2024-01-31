@@ -295,6 +295,37 @@ function get_one_away(personality) {
 
 /**
  * @function
+ * @param {string} personality
+ * @returns {string[]}
+ */
+function get_two_away(personality) {
+	let result = [];
+	const [c, m, d] = split_pkey(personality);
+	if (c == 0) result.push(`2${m}${d}`);
+	if (c < 2 && m < 2) result.push(`${c+1}${m+1}${d}`);
+	if (c < 2 && m > 0) result.push(`${c+1}${m-1}${d}`);
+	if (c < 2 && d < 2) result.push(`${c+1}${m}${d+1}`);
+	if (c < 2 && d > 0) result.push(`${c+1}${m}${d-1}`);
+	if (c == 2) result.push(`0${m}${d}`);
+	if (c > 0 && m < 2) result.push(`${c-1}${m+1}${d}`);
+	if (c > 0 && m > 0) result.push(`${c-1}${m-1}${d}`);
+	if (c > 0 && d < 2) result.push(`${c-1}${m}${d+1}`);
+	if (c > 0 && d > 0) result.push(`${c-1}${m}${d-1}`);
+
+	if (m == 0) result.push(`${c}2${d}`);
+	if (m < 2 && d < 2) result.push(`${c}${m+1}${d+1}`);
+	if (m < 2 && d > 0) result.push(`${c}${m+1}${d-1}`);
+	if (m == 2) result.push(`${c}0${d}`);
+	if (m > 0 && d < 2) result.push(`${c}${m-1}${d+1}`);
+	if (m > 0 && d > 0) result.push(`${c}${m-1}${d-1}`);
+
+	if (d == 0) result.push(`${c}${m}2`);
+	if (d == 2) result.push(`${c}${m}0`);
+	return result
+}
+
+/**
+ * @function
  * @param {(string|splitKey)} p1
  * @param {(string|splitKey)} p2
  * @returns {[number,splitKey]}
@@ -313,7 +344,7 @@ function personality_diff(p1, p2) {
  * @function
  * @param {string} personality1
  * @param {string} personality2
- * @returns {[statChanges,statChanges][]}
+ * @returns {[statChanges,statChanges][], [splitKey,splitKey][]}
  */
 function find_steps_to_compatible(personality1, personality2) {
 	// We're assuming p1.hates.includes(k2) implies p2.hates.includes(k1)
@@ -322,44 +353,87 @@ function find_steps_to_compatible(personality1, personality2) {
 	if (!k1 || !k2) return undefined;
 
 	// Easy win
-	if (!p1.hates.includes(k2)) return [];
+	if (!p1.hates.includes(k2)) return [[], []];
+
+	/** @type {[statChanges,statChanges][]} */
+	let ones = [];
+	/** @type {[splitKey, Personality, number][]} */
+	const split_k1 = split_pkey(k1);
+	const split_k2 = split_pkey(k2);
+	const fopts = [
+		[split_k2, p1, 1],
+		[split_k1, p2, 0],
+	];
+	const ones_away_from_k1 = get_one_away(split_k1);
+	const ones_away_from_k2 = get_one_away(split_k2);
 
 	// One step away
-	/** @type {[statChanges,statChanges]} */
+	const ones_away = [ones_away_from_k1, ones_away_from_k2]
+	let did_set = false;
 	let options = [[[],[],[]], [[],[],[]]];
-	/** @type {[splitKey, Personality, number][]} */
-	const fopts = [
-		[split_pkey(k2), p1, 1],
-		[split_pkey(k1), p2, 0],
-	];
 	for (const [kn, po, pn] of fopts) {
-		for (const x of get_one_away(kn)) {
+		/** @type {[statChanges,statChanges]} */
+		for (const x of ones_away[pn]) {
 			if (!po.hates.includes(x)) {
 				// Diff of 1
 				const [_, diff] = personality_diff(kn, x);
 				switch (diff.toString()) {
 					case "1,0,0": case "-1,0,0":
 						options[pn][0].push(diff[0]);
+						did_set = true;
 						break;
 					case "0,1,0": case "0,-1,0":
 						options[pn][1].push(diff[1]);
+						did_set = true;
 						break;
 					case "0,0,1": case "0,0,-1":
 						options[pn][2].push(diff[2]);
+						did_set = true;
 						break;
 				}
 			}
 		}
+	}
 
-		if (options.length) {
-			for (const v of options[pn]) v.sort();
-			return [options];
+	if (did_set) {
+		for (const v of options[0]) v.sort();
+		for (const v of options[1]) v.sort();
+		ones.push(options);
+	}
+
+	// Two steps away
+	let twos = [];
+	const blank = [0,0,0];
+	for (const [kn, po, pn] of fopts) {
+		for (const x of get_two_away(kn)) {
+			if (!po.hates.includes(x)) {
+				// Diff of 2
+				const [_, diff] = personality_diff(kn, x);
+				twos.push(pn == 0 ? [diff, blank] : [blank, diff]);
+			}
 		}
 	}
 
-	// TODO: Two steps away
-	console.error("2+ steps away");
-	return [];
+	// One step away on both
+	let diff_from_k1 = [];
+	for (const x in ones_away_from_k1) {
+		// Confirm p2 itself hates this one (ones it likes are already in options)
+		if (p2.hates.includes(x)) {
+			diff_from_k1.push([x, personality_diff(split_k1, x)[1]]);
+		}
+	}
+	for (const x in ones_away_from_k2) {
+		if (p1.hates.includes(x)) {
+			for (const [y, ydiff] in diff_from_k1) {
+				if (!p1.hates.includes(y)) {
+					const [_, diff] = personality_diff(split_k2, x);
+					twos.push([ydiff, diff]);
+				}
+			}
+		}
+	}
+
+	return [ones, twos];
 }
 
 /**
@@ -428,6 +502,55 @@ function stat_changes_to_english(mon, stat_changes) {
 	return results;
 }
 
+/**
+ * @function
+ * @param {string} mon
+ * @param {splitKey} stat_changes
+ * @returns {string}
+ */
+function conj_stat_changes_to_english(mon, stat_changes) {
+	const [c, m, d] = stat_changes;
+	let results = [];
+
+	let first = true;
+	mon += "'s";
+
+	const gen_english = (stat_text, change) => {
+		const sRL = raise_or_lower[`${change < 0},${change > 0}`] ?? "wtf";
+		results.push(`${sRL} ${first ? mon : "its"} ${stat_text} by ${Math.abs(change)}`);
+		first = false;
+	}
+
+	if (!c && !m && !d) {
+		return "";
+	}
+
+	if (c == m && m == d) {
+		// All three match
+		gen_english("Charge, Mixed, and Cautious", c)
+	}
+	else if (c && c == m) {
+		gen_english("Charge and Mixed", c)
+		if (d) gen_english("Cautious", d)
+	}
+	else if (c && c == d) {
+		gen_english("Charge and Cautious", c)
+		if (m) gen_english("Mixed", m)
+	}
+	else if (m && m == d) {
+		if (c) gen_english("Charge", c)
+		gen_english("Mixed and Cautious", m)
+	}
+	else {
+		// Can't unify all on stats... TODO: better
+		if (c) gen_english("Charge", c)
+		if (m) gen_english("Mixed", m)
+		if (d) gen_english("Cautious", d)
+	}
+
+	return results.join(" AND ")
+}
+
 const raise_or_lower = {
 	"true,true": "raise or lower",
 	"false,true": "raise",
@@ -475,6 +598,7 @@ export function listen_compat_calc(input1, input2, results) {
 				res.replaceChildren("");
 				return;
 			}
+			const [compat_steps1, compat_steps2] = compat_steps;
 
 			// Update inputs
 			if (is_kb_event) {
@@ -484,28 +608,53 @@ export function listen_compat_calc(input1, input2, results) {
 				target.setSelectionRange(initial, full.length);
 			}
 
-			for (const opts of compat_steps) {
+			for (const opts of compat_steps1) {
 				let li = document.createElement("li"), br = false;
-				let which, stats;
+				let lines;
 				switch (`${!!sum_lengths(opts[0])},${!!sum_lengths(opts[1])}`) {
 					case "false,true":
-						which = "other mon";
-						stats = opts[1];
+						lines = stat_changes_to_english("other mon", opts[1]);
 						break;
 					case "true,false":
-						which = "pedigree";
-						stats = opts[0];
+						lines = stat_changes_to_english("pedigree", opts[0]);
+						break;
+					case "true,true":
+						lines = stat_changes_to_english("pedigree", opts[0]);
+						lines.push(...stat_changes_to_english("other mon", opts[0]));
 						break;
 					default:
 						res.replaceChildren("wtf?");
 						return;
 				}
-				for (const s of stat_changes_to_english(which, stats)) {
+				for (const s of lines) {
 					li.append($p(br ? `OR ${s}` : s[0].toUpperCase() + s.substring(1)));
 					br = true;
 				}
 				ul.append(li);
 			}
+			
+			for (const [pedigree, other] of compat_steps2) {
+				let li = document.createElement("li");
+				const p_en = conj_stat_changes_to_english("pedigree", pedigree);
+				const o_en = conj_stat_changes_to_english("other mon", other);
+				if (p_en && o_en) {
+					li.append($p(
+						p_en[0].toUpperCase() + p_en.substring(1)
+						+ ` AND ${o_en}`
+					));
+				}
+				else if (p_en) {
+					li.append($p(p_en[0].toUpperCase() + p_en.substring(1)));
+				}
+				else if (o_en) {
+					li.append($p(o_en[0].toUpperCase() + o_en.substring(1)));
+				}
+				else {
+					li.append($p("how did we get here"));
+				}
+				ul.append(li);
+			}
+
 			if (ul.children.length) {
 				res.replaceChildren(ul);
 			} else {
