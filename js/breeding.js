@@ -1,5 +1,5 @@
-import books from "./books.js";
-import personalities from "./personalities.js";
+import books from "./data_en/books.js";
+import personalities from "./data_en/personalities.js";
 import {
 	$table, $tr, $th, $td,
 	$p, $div, $select, $option
@@ -19,7 +19,7 @@ export function populate_personality_suggestions(target) {
 
 ////////////////// Utilities
 
-/** @typedef {import("./personalities").Personality} Personality */
+/** @typedef {import("./data_en/personalities.js").Personality} Personality */
 
 /**
  * @function
