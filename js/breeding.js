@@ -781,10 +781,10 @@ export function listen_compat_calc(input1, input2, results) {
  * @function
  * @param {string|number} mon1 - Pedigree
  * @param {string|number} mon2 - Other monster
- * @returns {Array<[Monster, number]>}
+ * @returns {Array<[Monster, number, number]>}
  */
 function get_breeding_results(mon1, mon2) {
-	/** @type {Array<[Monster, number]>} */
+	/** @type {Array<[Monster, number, number]>} */
 	const res = [];
 
 	/** @type {number} */
@@ -806,18 +806,16 @@ function get_breeding_results(mon1, mon2) {
 
 	for (const row of breeding) {
 		if (
-			(row[0] == id1 || row[0] == fam1)
-			&& (row[1] == id2 || row[1] == fam2)
+			(row[0] === id1 || row[0] === fam1)
+			&& (row[1] === id2 || row[1] === fam2)
 		) {
-			res.push([monsters[row[2]], row[4] ?? 0]);
-			if (row[3] ?? 0 == 0) break;
+			const req = row[3] ?? 0;
+			res.push([monsters[row[2]], req, row[4] ?? 0]);
+			if (req === 0) return res;
 		}
 	}
 
-	if (res.length == 0) {
-		res.push([monsters[id1], 0])
-	}
-
+	res.push([monsters[id1], 0])
 	return res;
 }
 
@@ -886,13 +884,15 @@ export function listen_breeding_inputs(input1, input2, input3, results1, results
 				target.setSelectionRange(initial, full.length);
 			}
 
-			for (const [mon3, pluses] of get_breeding_results(id1, id2)) {
+			for (const [mon3, required, pluses] of get_breeding_results(id1, id2)) {
 				let name = mon3.search ?? mon3.name;
 				if (pluses) name += ` +${pluses}`
 				table.append($tr(
 					$td(mon1.search ?? mon1.name),
-					$td("+"), $td(mon2.search ?? mon2.name),
-					$td("="), $td(name),
+					$td("+"),
+					$td(mon2.search ?? mon2.name),
+					$td(required ? `if +${required} then` : "="),
+					$td(name),
 				));
 			}
 
