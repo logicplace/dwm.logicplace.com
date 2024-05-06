@@ -929,7 +929,7 @@ export function listen_breeding_inputs(input1, input2, input3, results1, results
 
 			let warning = "";
 			for (const [mon1, mon2, required, pluses] of get_breeding_options(id3)) {
-				const name = mon3.search ?? mon3.name;
+				let name = mon3.search ?? mon3.name;
 				const m1str = typeof mon1 === "string";
 				const m2str = typeof mon2 === "string";
 				if (pluses) name += ` +${pluses}`
