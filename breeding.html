@@ -9,6 +9,7 @@
 <body>
 <div class="side-menu">
 	<ul>
+		<li><a href="#breeding">Breeding results</a></li>
 		<li><a href="#compat-calc">Make personalities compatible</a></li>
 		<li><a href="#compat-chart">Personality compatibility chart</a></li>
 		<li><a href="#personality-table">Personality table</a></li>
@@ -16,6 +17,16 @@
 </div>
 <div class="body">
 	<h1>Breeding information</h1>
+	<h2 id="breeding">Breeding results</h2>
+	<div class="breeding-query">
+		<input id="bq-pedigree" list="monsters" placeholder="Pedigree" />
+		<input id="bq-other" list="monsters" placeholder="Other mon" />
+	</div>
+	<div class="breeding-query1-result"></div>
+	<div class="breeding-query">
+		<input id="bq-baby" list="monsters" placeholder="Baby" />
+	</div>
+	<div class="breeding-query2-result"></div>
 	<h2 id="compat-calc">Make personalities compatible</h2>
 	<div class="compat-calc">
 		<input id="cc-pedigree" list="personalities" placeholder="Pedigree's personality" />
@@ -27,20 +38,25 @@
 	<h2 id="personality-table">Personality table</h2>
 	<div class="personality-table"></div>
 	<div class="book-table"></div>
+	<datalist id="monsters"></datalist>
 	<datalist id="personalities"></datalist>
 	<script type="module">
 		import {
 			populate_personality_suggestions,	
+			populate_monsters_suggestions,
 			generate_breeding_table,
 			generate_personality_table,
 			generate_book_table,
-			listen_compat_calc
+			listen_compat_calc,
+			listen_breeding_inputs
 		} from "./js/breeding.js"
+		populate_monsters_suggestions("#monsters");
 		populate_personality_suggestions("#personalities");
 		generate_breeding_table("#breeding-table");
 		generate_personality_table(".personality-table");
 		generate_book_table(".book-table");
 		listen_compat_calc("#cc-pedigree", "#cc-other", ".compat-calc-result");
+		listen_breeding_inputs("#bq-pedigree", "#bq-other", "#bq-baby", ".breeding-query1-result", ".breeding-query2-result")
 	</script>
 </div>
 </body>

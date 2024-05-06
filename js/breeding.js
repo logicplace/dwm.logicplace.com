@@ -1,4 +1,7 @@
 import books from "./data_en/books.js";
+import breeding from "./data_en/breeding.js";
+import families from "./data_en/families.js";
+import monsters from "./data_en/monsters.js";
 import personalities from "./data_en/personalities.js";
 import {
 	$table, $tr, $th, $td,
@@ -17,16 +20,32 @@ export function populate_personality_suggestions(target) {
 	}
 }
 
+/**
+ * @function
+ * @param {string} target - Selector for document.querySelector
+ */
+export function populate_monsters_suggestions(target) {
+	let elem = document.querySelector(target);
+	elem.replaceChildren();
+	for (const [_, m] of get_sorted_monsters()) {
+		elem.append($option(m.search ?? m.name));
+	}
+}
+
 ////////////////// Utilities
 
-/** @typedef {import("./data_en/personalities.js").Personality} Personality */
+/**
+ * @typedef {import("./data_en/breeding.js").BreedingPair} BreedingPair
+ * @typedef {import("./data_en/monsters.js").Monster} Monster
+ * @typedef {import("./data_en/personalities.js").Personality} Personality
+ */
 
 /**
  * @function
  * @param {string} name
  * @returns {[string,Personality]}
  */
-function lookup_by_name(name) {
+function lookup_personality_by_name(name) {
 	name = name.toUpperCase();
 	for (let [k, v] of Object.entries(personalities)) {
 		if (
@@ -38,6 +57,28 @@ function lookup_by_name(name) {
 		}
 	}
 	return [undefined, {name}];
+}
+
+/**
+ * @function
+ * @param {string} name
+ * @returns {[number,Monster]}
+ */
+function lookup_monster_by_name(name) {
+	let ret = [undefined, undefined];
+	name = name.toUpperCase().replace(/ /g, "");
+	for (const [k, v] of monsters.entries()) {
+		if (
+			(v.search ?? v.name).toUpperCase().startsWith(name)
+			|| v.dq8_name?.toUpperCase().startsWith(name)
+		) {
+			ret = [k, v];
+			if ((v.search ?? v.name).toUpperCase() == name) {
+				return ret;
+			}
+		}
+	}
+	return ret;
 }
 
 /**
@@ -93,6 +134,55 @@ function get_sorted_personalities(sort_by, reverse) {
 	return result;
 }
 
+/**
+ * @callback monsterIndexer
+ * @param {Monster} monster
+ * @param {string} key
+ * @returns {number}
+ */
+
+/** @type {Object.<string, monsterIndexer>} */
+const monster_indexer = {
+	"id": (m, k) => -Number.parseInt(k, 10),
+	"name": (m) => {
+		let result = 0, mul = Math.pow(27, 8);
+		for (let c of (m.search ?? m.name)) {
+			result += c.charCodeAt(0) * mul;
+			mul /= 27;
+		}
+		return result;
+	},
+}
+
+/**
+ * @function
+ * @param {string} sort_by
+ * @param {boolean} [reverse=false]
+ * @returns {[string,Monster][]}
+ */
+function get_sorted_monsters(sort_by, reverse) {
+	reverse ??= false;
+	let index_fn = monster_indexer[sort_by ?? "name"];
+	let idx2keys = {}, result = [];
+
+	for (const [k, v] of monsters.entries()) {
+		let idx = index_fn(v, k) * (reverse ? -1 : 1);
+		if (idx in idx2keys) idx2keys[idx].push(k);
+		else idx2keys[idx] = [k];
+	}
+
+	let indexes = Object.entries(idx2keys);
+	indexes.sort((a, b) => a[0] - b[0]);
+
+	for (const [_, v] of indexes) {
+		for (const x of v) {
+			result.push([x, monsters[x]])
+		}
+	}
+
+	return result;
+}
+
 
 /**
  * @function
@@ -101,6 +191,37 @@ function get_sorted_personalities(sort_by, reverse) {
  */
 function sum_lengths(arr) {
 	return arr.reduce((t, n) => t + n.length, 0)
+}
+
+
+/**
+ * @function
+ * @param {KeyboardEvent} e
+ * @param {string} last_handled
+ * @returns {[bool, string]}
+ */
+function handle_suggest_input(e, last_handled) {
+	const is_kb_event = (
+		e instanceof KeyboardEvent
+		&& !e.getModifierState("Alt")
+		&& !e.getModifierState("Control")
+		&& !e.getModifierState("Meta")
+		&& e.key.length == 1
+	);
+
+	/** @type HTMLInputElement */
+	const target = e.target;
+	if (is_kb_event && (!target.selectionEnd || target.selectionEnd == target.value.length)) {
+		const partial = (
+			target.selectionStart
+			? target.value.substring(0, target.selectionStart)
+			: target.value
+		).toUpperCase();
+		if (partial === last_handled) return;
+		last_handled = partial;
+	}
+
+	return [is_kb_event, last_handled]
 }
 
 
@@ -146,7 +267,7 @@ function personalities_to_breedability_rows(sort_by) {
 	for (const key of order) {
 		const d = data[key];
 		let row = [];
-		
+
 		for (const k of order) {
 			row.push(d[k] ?? true);
 		}
@@ -243,7 +364,7 @@ export function generate_personality_table(target, sort_by, reverse) {
  */
 export function generate_book_table(target) {
 	const result = $table({className: "nice-table"});
-	
+
 	// Make header
 	const th_key = $th({className: "upper-left"}, "🕮Books🕮");
 	const th_c = $th("C"), th_m = $th("M"), th_d = $th("D");
@@ -348,8 +469,8 @@ function personality_diff(p1, p2) {
  */
 function find_steps_to_compatible(personality1, personality2) {
 	// We're assuming p1.hates.includes(k2) implies p2.hates.includes(k1)
-	const [k1, p1] = lookup_by_name(personality1);
-	const [k2, p2] = lookup_by_name(personality2);
+	const [k1, p1] = lookup_personality_by_name(personality1);
+	const [k2, p2] = lookup_personality_by_name(personality2);
 	if (!k1 || !k2) return undefined;
 
 	// Easy win
@@ -566,29 +687,12 @@ const raise_or_lower = {
 export function listen_compat_calc(input1, input2, results) {
 	let in1 = document.querySelector(input1);
 	let in2 = document.querySelector(input2);
-	let res = document.querySelector(results);	
-	let last_handled = "";
+	let res = document.querySelector(results);
+	let last_handled = "", is_kb_event;
 
 	let handler = (e) => {
-		const is_kb_event = (
-			e instanceof KeyboardEvent
-			&& !e.getModifierState("Alt")
-			&& !e.getModifierState("Control")
-			&& !e.getModifierState("Meta")
-			&& e.key.length == 1
-		);
-
-		/** @type HTMLInputElement */
 		const target = e.target;
-		if (is_kb_event && (!target.selectionEnd || target.selectionEnd == target.value.length)) {
-			const partial = (
-				target.selectionStart
-				? target.value.substring(0, target.selectionStart)
-				: target.value
-			).toUpperCase();
-			if (partial === last_handled) return;
-			last_handled = partial;
-		}
+		[is_kb_event, last_handled] = handle_suggest_input(e, last_handled);
 
 		if (in1.value.length >= 3 && in2.value.length >= 3) {
 			// Start creating output
@@ -603,7 +707,7 @@ export function listen_compat_calc(input1, input2, results) {
 			// Update inputs
 			if (is_kb_event) {
 				const initial = target.value.length;
-				const full = lookup_by_name(target.value)[1].name;
+				const full = lookup_personality_by_name(target.value)[1].name;
 				target.value = full;
 				target.setSelectionRange(initial, full.length);
 			}
@@ -632,7 +736,7 @@ export function listen_compat_calc(input1, input2, results) {
 				}
 				ul.append(li);
 			}
-			
+
 			for (const [pedigree, other] of compat_steps2) {
 				let li = document.createElement("li");
 				const p_en = conj_stat_changes_to_english("pedigree", pedigree);
@@ -669,4 +773,191 @@ export function listen_compat_calc(input1, input2, results) {
 	in2.addEventListener("keyup", handler);
 	in1.addEventListener("change", handler);
 	in2.addEventListener("change", handler);
+}
+
+
+////////////////// Breeding pairs
+
+/**
+ * @function
+ * @param {string|number} mon1 - Pedigree
+ * @param {string|number} mon2 - Other monster
+ * @returns {Array<[Monster, number]>}
+ */
+function get_breeding_results(mon1, mon2) {
+	/** @type {Array<[Monster, number]>} */
+	const res = [];
+
+	/** @type {number} */
+	const id1 = typeof mon1 === "string" ? lookup_monster_by_name(mon1)[0] : mon1;
+
+	/** @type {number} */
+	const id2 = typeof mon2 === "string" ? lookup_monster_by_name(mon2)[0] : mon2;
+
+	if (typeof mon1 === "string") {
+		id1, _ = lookup_monster_by_name(mon1);
+	}
+
+	if (typeof mon2 === "string") {
+		id2, _ = lookup_monster_by_name(mon2);
+	}
+
+	const fam1 = 0xf0 + monsters[id1].family;
+	const fam2 = 0xf0 + monsters[id2].family;
+
+	for (const row of breeding) {
+		if (
+			(row[0] == id1 || row[0] == fam1)
+			&& (row[1] == id2 || row[1] == fam2)
+		) {
+			res.push([monsters[row[2]], row[4] ?? 0]);
+			if (row[3] ?? 0 == 0) break;
+		}
+	}
+
+	if (res.length == 0) {
+		res.push([monsters[id1], 0])
+	}
+
+	return res;
+}
+
+/**
+ * @function
+ * @param {string|number} mon - Resulting monster
+ * @returns {Array<[Monster|string, Monster|string, number, number]>}
+ */
+function get_breeding_options(mon) {
+	/** @type {Array<[Monster|string, Monster|string, number, number]>} */
+	const res = [];
+
+	/** @type {number} */
+	const id3 = typeof mon === "string" ? lookup_monster_by_name(mon)[0] : mon;
+
+	for (const row of breeding) {
+		const id1 = row[0];
+		const id2 = row[1];
+		if (row[2] == id3) {
+			res.push([
+				id1 >= 0xf0 ? "any " + families[id1 - 0xf0] : monsters[id1],
+				id2 >= 0xf0 ? "any " + families[id2 - 0xf0] : monsters[id2],
+				row[3] ?? 0,
+				row[4] ?? 0
+			]);
+		}
+	}
+
+	return res;
+}
+
+
+/**
+ * @function
+ * @param {string} input1 - Selector for pedigree input element
+ * @param {string} input2 - Selector for breeding partner input element
+ * @param {string} input3 - Selector for resulting monster input element
+ * @param {string} results - Selector for element to put results into
+ */
+export function listen_breeding_inputs(input1, input2, input3, results1, results2) {
+	const in1 = document.querySelector(input1);
+	const in2 = document.querySelector(input2);
+	const in3 = document.querySelector(input3);
+	const res1 = document.querySelector(results1);
+	const res2 = document.querySelector(results2);
+	let last_handled = "", is_kb_event;
+
+	const forward_handler = (e) => {
+		const target = e.target;
+		[is_kb_event, last_handled] = handle_suggest_input(e, last_handled);
+
+		if (in1.value.length >= 3 && in2.value.length >= 3) {
+			// Start creating output
+			const table = $table({class: "breeding-table"},
+				$tr($th("Pedigree"), $th("+"), $th("Partner"), $th("="), $th("Baby")));
+
+			const [id1, mon1] = lookup_monster_by_name(in1.value);
+			const [id2, mon2] = lookup_monster_by_name(in2.value);
+
+			// Update inputs
+			if (is_kb_event) {
+				const initial = target.value.length;
+				const mon = target === in1 ? mon1 : mon2;
+				const full = mon.search ?? mon.name;
+				target.value = full;
+				target.setSelectionRange(initial, full.length);
+			}
+
+			for (const [mon3, pluses] of get_breeding_results(id1, id2)) {
+				let name = mon3.search ?? mon3.name;
+				if (pluses) name += ` +${pluses}`
+				table.append($tr(
+					$td(mon1.search ?? mon1.name),
+					$td("+"), $td(mon2.search ?? mon2.name),
+					$td("="), $td(name),
+				));
+			}
+
+			res1.replaceChildren(table);
+		} else {
+			res1.replaceChildren("");
+		}
+	}
+
+	in1.addEventListener("keyup", forward_handler);
+	in2.addEventListener("keyup", forward_handler);
+	in1.addEventListener("change", forward_handler);
+	in2.addEventListener("change", forward_handler);
+
+	const backward_handler = (e) => {
+		const target = e.target;
+		[is_kb_event, last_handled] = handle_suggest_input(e, last_handled);
+
+		if (in3.value.length >= 3) {
+			// Start creating output
+			const table = $table({class: "breeding-table"},
+				$tr($th("Pedigree"), $th("+"), $th("Other mon"), $th("="), $th("Baby")));
+
+			const [id3, mon3] = lookup_monster_by_name(in3.value);
+
+			// Update inputs
+			if (is_kb_event) {
+				const initial = target.value.length;
+				const full = mon3.search ?? mon3.name;
+				target.value = full;
+				target.setSelectionRange(initial, full.length);
+			}
+
+			let warning = "";
+			for (const [mon1, mon2, required, pluses] of get_breeding_options(id3)) {
+				const name = mon3.search ?? mon3.name;
+				const m1str = typeof mon1 === "string";
+				const m2str = typeof mon2 === "string";
+				if (pluses) name += ` +${pluses}`
+				table.append($tr(
+					$td(m1str ? mon1 : mon1.search ?? mon1.name),
+					$td("+"),
+					$td(m2str ? mon2 : mon2.search ?? mon2.name),
+					$td(required ? `if +${required} then` : "="),
+					$td(name),
+				));
+
+				if (m1str || m2str) {
+					warning = 'Warning: For "any [family]" pairs, check your specific monsters before breeding!'
+				}
+			}
+
+			if (warning) {
+				res2.replaceChildren(table, $div({class: "warning"}, warning));
+			}
+			else {
+				res2.replaceChildren(table);
+			}
+
+		} else {
+			res2.replaceChildren("");
+		}
+	}
+
+	in3.addEventListener("keyup", backward_handler);
+	in3.addEventListener("change", backward_handler);
 }
