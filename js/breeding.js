@@ -217,11 +217,10 @@ function handle_suggest_input(e, last_handled) {
 			? target.value.substring(0, target.selectionStart)
 			: target.value
 		).toUpperCase();
-		if (partial === last_handled) return;
-		last_handled = partial;
+		if (partial !== last_handled) last_handled = partial;
 	}
 
-	return [is_kb_event, last_handled]
+	return [is_kb_event, last_handled];
 }
 
 
