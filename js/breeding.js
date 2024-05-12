@@ -320,7 +320,7 @@ export function generate_breeding_table(target, sort_by) {
 	elem.replaceChildren(result);
 }
 
-const num_to_emote = ["❌", "⚪", "⭐"];
+const num_to_emote = ["⭐", "⚪", "❌"];
 
 /**
  * @function
