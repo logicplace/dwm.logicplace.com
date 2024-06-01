@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Dragon Warrior Monsters - Leveling</title>
+	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="css/leveling.css">
+</head>
+<body>
+<div class="body">
+	<h1>Leveling information</h1>
+	<h2 id="stat-growth">Stat growth</h2>
+	<div class="stat-query">
+		<input id="sq-name" list="monsters" placeholder="Monster" />
+		<input id="current-level" type="number" placeholder="Current level" />
+		<input id="max-level" type="number" placeholder="Max level" />
+		<div class="stat-entry">
+			<label>HP</label>
+			<input id="current-hp" type="number" placeholder="Current HP" />
+			<input id="hp-tbl-idx" type="number" placeholder="Table index" min="0" max="31" />
+		</div>
+		<div class="stat-entry">
+			<label>MP</label>
+			<input id="current-mp" type="number" placeholder="Current MP" />
+			<input id="mp-tbl-idx" type="number" placeholder="Table index" min="0" max="31" />
+		</div>
+		<div class="stat-entry">
+			<label>ATK</label>
+			<input id="current-atk" type="number" placeholder="Current ATK" />
+			<input id="atk-tbl-idx" type="number" placeholder="Table index" min="0" max="31" />
+		</div>
+		<div class="stat-entry">
+			<label>DEF</label>
+			<input id="current-def" type="number" placeholder="Current DEF" />
+			<input id="def-tbl-idx" type="number" placeholder="Table index" min="0" max="31" />
+		</div>
+		<div class="stat-entry">
+			<label>AGL</label>
+			<input id="current-agl" type="number" placeholder="Current AGL" />
+			<input id="agl-tbl-idx" type="number" placeholder="Table index" min="0" max="31" />
+		</div>
+		<div class="stat-entry">
+			<label>INT</label>
+			<input id="current-int" type="number" placeholder="Current INT" />
+			<input id="int-tbl-idx" type="number" placeholder="Table index" min="0" max="31" />
+		</div>
+		<input id="view-level" type="number" placeholder="Results for level" />
+		<div class="sq-results"></div>
+	</div>
+	<datalist id="monsters"></datalist>
+	<script type="module">
+		import {
+			populate_monsters_suggestions
+		} from "./js/breeding.js"
+		import {
+			listen_stat_inputs,
+		} from "./js/leveling.js"
+		populate_monsters_suggestions("#monsters");
+		listen_stat_inputs("#sq-name", "#current-level", "#max-level", "#view-level", "#current-%s", "#%s-tbl-idx", ".sq-results");
+	</script>
+</div>
+</body>
+</html>

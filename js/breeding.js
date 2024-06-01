@@ -64,7 +64,7 @@ function lookup_personality_by_name(name) {
  * @param {string} name
  * @returns {[number,Monster]}
  */
-function lookup_monster_by_name(name) {
+export function lookup_monster_by_name(name) {
 	let ret = [undefined, undefined];
 	name = name.toUpperCase().replace(/ /g, "");
 	for (const [k, v] of monsters.entries()) {

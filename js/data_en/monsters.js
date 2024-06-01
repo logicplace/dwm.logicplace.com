@@ -10,6 +10,7 @@
  * @property {number} exp_table - ID of table for experience requirements by level
  * @property {number} percent_f - Percent of eggs which are female (dividend with a divisor of 256)
  * @property {[number,number,number]} skills - IDs of naturally learnable skills
+ * @property {[number,number,number,number,number,number]} stat_table - ID of table for stat gain by level
  * @property {Array<number>} resistances - Base resistances.
 */
 /** @type {Monster[]} */
@@ -23,6 +24,7 @@ export default
 		"exp_table": 13,
 		"percent_f": 2,
 		"skills": [67, 92, 213],
+		"stat_table": [16, 10, 13, 8, 20, 16],
 		"resistances": [1, 1, 1, 0, 0, 0, 2, 2, 2, 2, 2, 2, 2, 2, 3, 2, 2, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0]
 	},
 	{
@@ -33,6 +35,7 @@ export default
 		"exp_table": 10,
 		"percent_f": 2,
 		"skills": [82, 121, 127],
+		"stat_table": [17, 1, 17, 4, 17, 8],
 		"resistances": [0, 0, 0, 0, 0, 0, 2, 2, 2, 2, 2, 2, 3, 3, 2, 2, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0]
 	},
 	{
@@ -43,6 +46,7 @@ export default
 		"exp_table": 10,
 		"percent_f": 2,
 		"skills": [85, 88, 138],
+		"stat_table": [13, 2, 11, 11, 24, 8],
 		"resistances": [0, 0, 0, 1, 1, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0]
 	},
 	{
@@ -53,6 +57,7 @@ export default
 		"exp_table": 11,
 		"percent_f": 2,
 		"skills": [28, 105, 106],
+		"stat_table": [13, 11, 8, 14, 17, 17],
 		"resistances": [0, 0, 0, 1, 1, 0, 2, 2, 2, 3, 3, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0]
 	},
 	{
@@ -63,6 +68,7 @@ export default
 		"exp_table": 8,
 		"percent_f": 2,
 		"skills": [12, 52, 82],
+		"stat_table": [11, 10, 17, 20, 20, 8],
 		"resistances": [0, 0, 0, 0, 0, 0, 2, 3, 2, 2, 3, 2, 2, 2, 2, 2, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 0]
 	},
 	{
@@ -73,6 +79,7 @@ export default
 		"exp_table": 15,
 		"percent_f": 2,
 		"skills": [30, 43, 74],
+		"stat_table": [14, 1, 15, 14, 20, 14],
 		"resistances": [1, 1, 1, 1, 1, 1, 2, 2, 3, 2, 2, 2, 2, 2, 3, 2, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0]
 	},
 	{
@@ -83,6 +90,7 @@ export default
 		"exp_table": 12,
 		"percent_f": 2,
 		"skills": [24, 103, 116],
+		"stat_table": [17, 7, 17, 8, 14, 13],
 		"resistances": [0, 0, 0, 0, 0, 0, 3, 3, 3, 2, 2, 3, 2, 2, 2, 2, 0, 0, 3, 1, 1, 0, 0, 0, 0, 0, 0]
 	},
 	{
@@ -93,6 +101,7 @@ export default
 		"exp_table": 11,
 		"percent_f": 2,
 		"skills": [0, 30, 60],
+		"stat_table": [11, 10, 14, 19, 14, 13],
 		"resistances": [0, 0, 1, 0, 0, 1, 2, 2, 3, 2, 2, 2, 2, 2, 3, 2, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 	},
 	{
@@ -103,6 +112,7 @@ export default
 		"exp_table": 16,
 		"percent_f": 2,
 		"skills": [3, 102, 115],
+		"stat_table": [22, 11, 14, 17, 11, 13],
 		"resistances": [0, 0, 0, 0, 0, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 	},
 	{
@@ -113,6 +123,7 @@ export default
 		"exp_table": 11,
 		"percent_f": 2,
 		"skills": [30, 43, 46],
+		"stat_table": [11, 15, 11, 11, 20, 18],
 		"resistances": [0, 0, 0, 1, 1, 0, 2, 2, 2, 3, 3, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 1, 2, 2, 0, 0, 0]
 	},
 	{
@@ -123,6 +134,7 @@ export default
 		"exp_table": 10,
 		"percent_f": 2,
 		"skills": [65, 82, 125],
+		"stat_table": [25, 1, 18, 13, 20, 13],
 		"resistances": [0, 0, 0, 0, 0, 0, 2, 2, 3, 2, 2, 2, 3, 3, 3, 2, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 0]
 	},
 	{
@@ -133,6 +145,7 @@ export default
 		"exp_table": 11,
 		"percent_f": 2,
 		"skills": [66, 91, 142],
+		"stat_table": [13, 10, 14, 23, 16, 14],
 		"resistances": [0, 0, 1, 0, 0, 2, 2, 2, 3, 2, 2, 2, 2, 2, 3, 2, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 	},
 	{
@@ -143,6 +156,7 @@ export default
 		"exp_table": 11,
 		"percent_f": 2,
 		"skills": [87, 90, 144],
+		"stat_table": [18, 11, 20, 15, 14, 13],
 		"resistances": [1, 1, 0, 1, 2, 1, 2, 2, 3, 2, 2, 3, 2, 2, 3, 2, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0]
 	},
 	{
@@ -153,6 +167,7 @@ export default
 		"exp_table": 10,
 		"percent_f": 2,
 		"skills": [119, 123, 126],
+		"stat_table": [15, 7, 14, 8, 21, 15],
 		"resistances": [0, 0, 0, 0, 0, 0, 2, 2, 2, 2, 2, 2, 3, 3, 2, 2, 0, 0, 0, 0, 0, 2, 1, 1, 2, 1, 0]
 	},
 	{
@@ -163,6 +178,7 @@ export default
 		"exp_table": 9,
 		"percent_f": 2,
 		"skills": [78, 104, 146],
+		"stat_table": [18, 11, 18, 11, 20, 15],
 		"resistances": [1, 1, 1, 0, 0, 1, 3, 2, 3, 2, 2, 3, 3, 3, 3, 2, 1, 1, 0, 1, 0, 2, 2, 2, 2, 2, 0]
 	},
 	{
@@ -173,6 +189,7 @@ export default
 		"exp_table": 12,
 		"percent_f": 2,
 		"skills": [36, 43, 48],
+		"stat_table": [18, 14, 15, 14, 20, 15],
 		"resistances": [1, 1, 1, 1, 1, 1, 3, 2, 3, 2, 2, 3, 3, 3, 3, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0]
 	},
 	{
@@ -183,6 +200,7 @@ export default
 		"exp_table": 25,
 		"percent_f": 2,
 		"skills": [0, 12, 18],
+		"stat_table": [0, 30, 11, 30, 31, 13],
 		"resistances": [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 1, 3, 3, 3, 3, 3, 0, 0, 0, 3, 0, 0]
 	},
 	{
@@ -193,6 +211,7 @@ export default
 		"exp_table": 27,
 		"percent_f": 2,
 		"skills": [3, 6, 20],
+		"stat_table": [0, 30, 14, 31, 31, 15],
 		"resistances": [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 2, 3, 3, 3, 3, 3, 0, 0, 0, 3, 0, 0]
 	},
 	{
@@ -203,6 +222,7 @@ export default
 		"exp_table": 29,
 		"percent_f": 2,
 		"skills": [15, 42, 100],
+		"stat_table": [0, 31, 15, 31, 31, 18],
 		"resistances": [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 2, 3, 3, 3, 3, 3, 0, 0, 0, 3, 1, 0]
 	},
 	{
@@ -213,6 +233,7 @@ export default
 		"exp_table": 31,
 		"percent_f": 2,
 		"skills": [57, 101, 129],
+		"stat_table": [0, 31, 19, 31, 31, 18],
 		"resistances": [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 2, 3, 3, 3, 3, 3, 1, 1, 1, 3, 2, 0]
 	},
 	{
@@ -223,6 +244,7 @@ export default
 		"exp_table": 7,
 		"percent_f": 2,
 		"skills": [92, 106, 140],
+		"stat_table": [10, 3, 17, 2, 5, 5],
 		"resistances": [1, 2, 2, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 3, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 	},
 	{
@@ -233,6 +255,7 @@ export default
 		"exp_table": 17,
 		"percent_f": 2,
 		"skills": [39, 42, 90],
+		"stat_table": [15, 11, 18, 6, 7, 13],
 		"resistances": [2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 2, 0, 2, 1, 0, 0, 0, 1, 1, 1, 1, 1, 0]
 	},
 	{
@@ -243,6 +266,7 @@ export default
 		"exp_table": 16,
 		"percent_f": 2,
 		"skills": [3, 88, 138],
+		"stat_table": [14, 11, 18, 2, 20, 4],
 		"resistances": [2, 2, 2, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 2, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0]
 	},
 	{
@@ -253,6 +277,7 @@ export default
 		"exp_table": 18,
 		"percent_f": 2,
 		"skills": [20, 50, 61],
+		"stat_table": [17, 15, 13, 11, 7, 18],
 		"resistances": [2, 2, 2, 1, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 2, 0, 2, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0]
 	},
 	{
@@ -263,6 +288,7 @@ export default
 		"exp_table": 15,
 		"percent_f": 2,
 		"skills": [24, 106, 121],
+		"stat_table": [9, 13, 17, 16, 14, 4],
 		"resistances": [2, 2, 2, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2, 0, 2, 0, 1, 1, 1, 0, 0, 0, 1, 1, 0]
 	},
 	{
@@ -273,6 +299,7 @@ export default
 		"exp_table": 20,
 		"percent_f": 2,
 		"skills": [64, 74, 217],
+		"stat_table": [17, 10, 19, 13, 5, 16],
 		"resistances": [2, 2, 2, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 3, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 	},
 	{
@@ -283,6 +310,7 @@ export default
 		"exp_table": 19,
 		"percent_f": 2,
 		"skills": [103, 108, 121],
+		"stat_table": [21, 16, 15, 13, 7, 1],
 		"resistances": [2, 2, 2, 0, 0, 0, 1, 1, 1, 0, 0, 1, 0, 0, 2, 0, 2, 0, 2, 1, 1, 0, 0, 0, 0, 0, 0]
 	},
 	{
@@ -293,6 +321,7 @@ export default
 		"exp_table": 20,
 		"percent_f": 2,
 		"skills": [78, 87, 144],
+		"stat_table": [9, 3, 23, 6, 1, 5],
 		"resistances": [2, 2, 3, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 3, 0, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 	},
 	{
@@ -303,6 +332,7 @@ export default
 		"exp_table": 20,
 		"percent_f": 2,
 		"skills": [68, 92, 143],
+		"stat_table": [17, 1, 20, 16, 7, 4],
 		"resistances": [2, 2, 2, 0, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0, 2, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 	},
 	{
@@ -313,6 +343,7 @@ export default
 		"exp_table": 16,
 		"percent_f": 2,
 		"skills": [60, 82, 114],
+		"stat_table": [14, 8, 17, 14, 18, 10],
 		"resistances": [2, 2, 2, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 2, 0, 0, 0, 0, 2, 1, 2, 1, 1, 0]
 	},
 	{
@@ -323,6 +354,7 @@ export default
 		"exp_table": 19,
 		"percent_f": 2,
 		"skills": [63, 64, 120],
+		"stat_table": [19, 0, 21, 5, 8, 0],
 		"resistances": [2, 2, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 2, 0, 2, 0, 0, 0, 0, 2, 2, 1, 2, 2, 0]
 	},
 	{
@@ -333,6 +365,7 @@ export default
 		"exp_table": 17,
 		"percent_f": 2,
 		"skills": [70, 76, 103],
+		"stat_table": [14, 2, 17, 16, 15, 5],
 		"resistances": [2, 2, 2, 2, 2, 0, 0, 2, 0, 0, 0, 1, 0, 0, 2, 0, 2, 1, 0, 0, 0, 0, 2, 1, 2, 1, 0]
 	},
 	{
@@ -343,6 +376,7 @@ export default
 		"exp_table": 19,
 		"percent_f": 2,
 		"skills": [25, 105, 107],
+		"stat_table": [17, 18, 11, 6, 8, 13],
 		"resistances": [1, 2, 2, 0, 0, 0, 0, 0, 2, 1, 0, 3, 0, 0, 3, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 	},
 	{
@@ -353,6 +387,7 @@ export default
 		"exp_table": 16,
 		"percent_f": 2,
 		"skills": [3, 88, 92],
+		"stat_table": [11, 11, 17, 17, 13, 5],
 		"resistances": [1, 2, 2, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2, 0, 3, 0, 1, 1, 1, 0, 0, 0, 1, 1, 0]
 	},
 	{
@@ -363,6 +398,7 @@ export default
 		"exp_table": 22,
 		"percent_f": 2,
 		"skills": [9, 24, 108],
+		"stat_table": [21, 15, 19, 17, 19, 12],
 		"resistances": [2, 2, 2, 0, 0, 0, 0, 2, 2, 2, 0, 2, 0, 0, 2, 0, 2, 2, 0, 0, 0, 1, 1, 1, 0, 0, 0]
 	},
 	{
@@ -373,6 +409,7 @@ export default
 		"exp_table": 20,
 		"percent_f": 2,
 		"skills": [103, 111, 113],
+		"stat_table": [18, 8, 16, 13, 19, 11],
 		"resistances": [1, 2, 2, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 3, 1, 2, 0, 2, 0, 2, 0, 0, 0, 0, 0, 0]
 	},
 	{
@@ -383,6 +420,7 @@ export default
 		"exp_table": 19,
 		"percent_f": 2,
 		"skills": [61, 62, 91],
+		"stat_table": [20, 8, 19, 24, 1, 2],
 		"resistances": [2, 2, 2, 0, 0, 0, 0, 1, 1, 0, 0, 1, 0, 0, 3, 0, 2, 0, 1, 1, 1, 0, 0, 0, 1, 1, 0]
 	},
 	{
@@ -393,6 +431,7 @@ export default
 		"exp_table": 23,
 		"percent_f": 2,
 		"skills": [71, 96, 143],
+		"stat_table": [21, 5, 23, 14, 16, 11],
 		"resistances": [2, 3, 2, 1, 1, 1, 1, 2, 3, 1, 1, 2, 1, 1, 3, 0, 3, 1, 1, 3, 1, 1, 1, 1, 1, 1, 0]
 	},
 	{
@@ -403,6 +442,7 @@ export default
 		"exp_table": 18,
 		"percent_f": 2,
 		"skills": [23, 103, 213],
+		"stat_table": [14, 4, 15, 5, 19, 8],
 		"resistances": [2, 2, 2, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 2, 0, 0, 0, 0, 2, 2, 1, 1, 1, 0]
 	},
 	{
@@ -413,6 +453,7 @@ export default
 		"exp_table": 20,
 		"percent_f": 1,
 		"skills": [66, 85, 108],
+		"stat_table": [15, 8, 20, 17, 14, 11],
 		"resistances": [3, 3, 2, 1, 1, 0, 0, 0, 2, 0, 1, 0, 0, 0, 3, 0, 3, 0, 0, 0, 0, 2, 2, 1, 1, 1, 0]
 	},
 	{
@@ -423,6 +464,7 @@ export default
 		"exp_table": 23,
 		"percent_f": 2,
 		"skills": [6, 64, 69],
+		"stat_table": [25, 14, 20, 22, 18, 14],
 		"resistances": [2, 2, 2, 1, 1, 1, 1, 2, 2, 1, 1, 1, 1, 1, 3, 1, 3, 1, 1, 1, 1, 2, 2, 1, 1, 1, 0]
 	},
 	{
@@ -433,6 +475,7 @@ export default
 		"exp_table": 22,
 		"percent_f": 2,
 		"skills": [68, 80, 92],
+		"stat_table": [24, 13, 24, 21, 11, 8],
 		"resistances": [2, 2, 2, 1, 1, 1, 2, 2, 2, 1, 1, 3, 1, 1, 3, 0, 3, 1, 2, 2, 2, 1, 1, 1, 1, 1, 0]
 	},
 	{
@@ -443,6 +486,7 @@ export default
 		"exp_table": 22,
 		"percent_f": 2,
 		"skills": [64, 72, 92],
+		"stat_table": [23, 16, 26, 20, 17, 16],
 		"resistances": [2, 2, 2, 2, 2, 1, 1, 2, 2, 1, 1, 1, 1, 1, 3, 0, 3, 1, 1, 2, 1, 1, 1, 1, 1, 1, 0]
 	},
 	{
@@ -453,6 +497,7 @@ export default
 		"exp_table": 18,
 		"percent_f": 3,
 		"skills": [67, 79, 92],
+		"stat_table": [15, 11, 20, 14, 18, 8],
 		"resistances": [1, 2, 2, 2, 2, 1, 1, 2, 2, 1, 1, 1, 1, 1, 3, 0, 3, 1, 1, 2, 1, 2, 2, 2, 2, 2, 0]
 	},
 	{
@@ -463,6 +508,7 @@ export default
 		"exp_table": 28,
 		"percent_f": 3,
 		"skills": [96, 101, 147],
+		"stat_table": [26, 25, 28, 24, 20, 23],
 		"resistances": [2, 3, 3, 2, 2, 2, 2, 2, 3, 2, 2, 3, 2, 2, 3, 1, 3, 2, 2, 3, 2, 2, 2, 2, 2, 2, 0]
 	},
 	{
@@ -473,6 +519,7 @@ export default
 		"exp_table": 12,
 		"percent_f": 2,
 		"skills": [104, 106, 121],
+		"stat_table": [14, 5, 15, 12, 11, 16],
 		"resistances": [0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 3, 3, 1, 1, 0, 0, 0, 0, 0, 2, 2, 2, 2, 2, 0]
 	},
 	{
@@ -483,6 +530,7 @@ export default
 		"exp_table": 13,
 		"percent_f": 2,
 		"skills": [21, 61, 65],
+		"stat_table": [18, 5, 14, 9, 15, 4],
 		"resistances": [1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 1, 0, 1, 0, 0, 0, 0, 2, 2, 2, 2, 2, 0]
 	},
 	{
@@ -493,6 +541,7 @@ export default
 		"exp_table": 10,
 		"percent_f": 2,
 		"skills": [23, 32, 117],
+		"stat_table": [11, 10, 13, 8, 18, 14],
 		"resistances": [0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, 0, 3, 3, 3, 3, 3, 0]
 	},
 	{
@@ -503,6 +552,7 @@ export default
 		"exp_table": 11,
 		"percent_f": 2,
 		"skills": [60, 82, 119],
+		"stat_table": [14, 17, 8, 8, 19, 13],
 		"resistances": [0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 0, 2, 2, 0, 0, 0, 0, 0, 0, 0, 3, 3, 3, 2, 2, 0]
 	},
 	{
@@ -513,6 +563,7 @@ export default
 		"exp_table": 9,
 		"percent_f": 2,
 		"skills": [30, 86, 107],
+		"stat_table": [16, 5, 9, 17, 0, 13],
 		"resistances": [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2, 0, 0, 0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 0]
 	},
 	{
@@ -523,6 +574,7 @@ export default
 		"exp_table": 13,
 		"percent_f": 2,
 		"skills": [60, 63, 125],
+		"stat_table": [24, 1, 26, 13, 7, 1],
 		"resistances": [1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 2, 2, 1, 0, 0, 0, 0, 0, 0, 2, 2, 2, 2, 2, 0]
 	},
 	{
@@ -533,6 +585,7 @@ export default
 		"exp_table": 12,
 		"percent_f": 2,
 		"skills": [65, 73, 110],
+		"stat_table": [14, 10, 11, 8, 16, 2],
 		"resistances": [0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 2, 2, 1, 0, 0, 0, 1, 1, 1, 2, 2, 2, 2, 2, 0]
 	},
 	{
@@ -543,6 +596,7 @@ export default
 		"exp_table": 12,
 		"percent_f": 2,
 		"skills": [9, 12, 70],
+		"stat_table": [13, 20, 13, 15, 15, 13],
 		"resistances": [0, 0, 0, 2, 0, 1, 0, 0, 1, 0, 0, 0, 2, 2, 1, 0, 0, 1, 0, 0, 0, 2, 2, 2, 2, 2, 0]
 	},
 	{
@@ -553,6 +607,7 @@ export default
 		"exp_table": 8,
 		"percent_f": 2,
 		"skills": [72, 85, 121],
+		"stat_table": [14, 7, 17, 11, 9, 11],
 		"resistances": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 2, 2, 0]
 	},
 	{
@@ -563,6 +618,7 @@ export default
 		"exp_table": 9,
 		"percent_f": 2,
 		"skills": [113, 127, 148],
+		"stat_table": [18, 7, 13, 12, 11, 7],
 		"resistances": [0, 0, 0, 0, 0, 0, 1, 2, 1, 0, 0, 2, 2, 2, 0, 0, 0, 0, 1, 1, 1, 2, 2, 2, 2, 2, 0]
 	},
 	{
@@ -573,6 +629,7 @@ export default
 		"exp_table": 10,
 		"percent_f": 2,
 		"skills": [39, 136, 142],
+		"stat_table": [18, 5, 17, 23, 2, 11],
 		"resistances": [1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 2, 2, 1, 0, 2, 2, 0, 0, 0, 2, 2, 2, 2, 2, 0]
 	},
 	{
@@ -583,6 +640,7 @@ export default
 		"exp_table": 11,
 		"percent_f": 2,
 		"skills": [12, 120, 146],
+		"stat_table": [14, 11, 16, 14, 20, 8],
 		"resistances": [0, 0, 0, 1, 1, 0, 0, 0, 1, 0, 0, 1, 2, 2, 0, 0, 0, 0, 0, 0, 0, 3, 3, 3, 3, 3, 0]
 	},
 	{
@@ -593,6 +651,7 @@ export default
 		"exp_table": 11,
 		"percent_f": 2,
 		"skills": [62, 64, 65],
+		"stat_table": [17, 19, 17, 11, 17, 10],
 		"resistances": [0, 0, 0, 1, 1, 0, 0, 0, 0, 2, 2, 0, 2, 2, 0, 0, 0, 0, 0, 0, 0, 3, 3, 3, 2, 2, 0]
 	},
 	{
@@ -603,6 +662,7 @@ export default
 		"exp_table": 14,
 		"percent_f": 2,
 		"skills": [59, 85, 123],
+		"stat_table": [20, 0, 27, 7, 9, 1],
 		"resistances": [1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 2, 2, 1, 0, 0, 0, 0, 0, 0, 3, 2, 2, 3, 2, 0]
 	},
 	{
@@ -613,6 +673,7 @@ export default
 		"exp_table": 13,
 		"percent_f": 2,
 		"skills": [12, 71, 125],
+		"stat_table": [18, 11, 15, 9, 10, 8],
 		"resistances": [1, 1, 1, 1, 1, 2, 0, 0, 1, 0, 0, 0, 2, 2, 1, 0, 0, 3, 0, 0, 0, 2, 2, 2, 2, 2, 0]
 	},
 	{
@@ -623,6 +684,7 @@ export default
 		"exp_table": 12,
 		"percent_f": 2,
 		"skills": [65, 75, 77],
+		"stat_table": [14, 13, 17, 9, 8, 11],
 		"resistances": [1, 1, 0, 0, 0, 1, 0, 0, 2, 0, 0, 0, 2, 2, 2, 0, 1, 1, 0, 0, 0, 2, 2, 2, 2, 2, 0]
 	},
 	{
@@ -633,6 +695,7 @@ export default
 		"exp_table": 11,
 		"percent_f": 2,
 		"skills": [24, 32, 214],
+		"stat_table": [12, 5, 13, 14, 17, 7],
 		"resistances": [1, 1, 1, 0, 0, 1, 0, 1, 0, 0, 0, 1, 2, 2, 1, 0, 1, 1, 0, 0, 0, 2, 2, 2, 2, 2, 0]
 	},
 	{
@@ -643,6 +706,7 @@ export default
 		"exp_table": 14,
 		"percent_f": 2,
 		"skills": [43, 48, 51],
+		"stat_table": [19, 21, 14, 13, 12, 25],
 		"resistances": [0, 0, 0, 0, 0, 0, 1, 2, 2, 1, 1, 2, 3, 3, 1, 1, 0, 2, 0, 1, 1, 3, 2, 2, 3, 2, 0]
 	},
 	{
@@ -653,6 +717,7 @@ export default
 		"exp_table": 11,
 		"percent_f": 2,
 		"skills": [3, 32, 106],
+		"stat_table": [19, 9, 17, 13, 17, 3],
 		"resistances": [0, 1, 1, 0, 0, 2, 1, 1, 1, 1, 1, 1, 3, 3, 1, 1, 1, 2, 0, 0, 0, 2, 2, 2, 2, 2, 0]
 	},
 	{
@@ -663,6 +728,7 @@ export default
 		"exp_table": 13,
 		"percent_f": 2,
 		"skills": [59, 82, 123],
+		"stat_table": [13, 1, 20, 10, 8, 4],
 		"resistances": [0, 0, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 2, 2, 1, 0, 0, 0, 0, 0, 0, 3, 3, 3, 3, 3, 0]
 	},
 	{
@@ -673,6 +739,7 @@ export default
 		"exp_table": 14,
 		"percent_f": 2,
 		"skills": [61, 114, 125],
+		"stat_table": [17, 8, 21, 17, 14, 13],
 		"resistances": [0, 1, 1, 1, 1, 1, 0, 0, 2, 0, 0, 1, 2, 3, 1, 0, 0, 1, 0, 0, 0, 3, 3, 3, 3, 3, 0]
 	},
 	{
@@ -683,6 +750,7 @@ export default
 		"exp_table": 15,
 		"percent_f": 2,
 		"skills": [3, 80, 96],
+		"stat_table": [20, 14, 24, 23, 17, 14],
 		"resistances": [1, 1, 1, 2, 2, 1, 1, 1, 3, 1, 1, 2, 3, 3, 3, 1, 1, 2, 1, 2, 1, 3, 3, 3, 3, 3, 0]
 	},
 	{
@@ -693,6 +761,7 @@ export default
 		"exp_table": 13,
 		"percent_f": 2,
 		"skills": [21, 23, 86],
+		"stat_table": [17, 4, 19, 18, 10, 12],
 		"resistances": [1, 1, 0, 0, 0, 1, 1, 2, 3, 1, 3, 1, 3, 3, 3, 1, 1, 1, 0, 2, 1, 3, 3, 3, 3, 3, 0]
 	},
 	{
@@ -703,6 +772,7 @@ export default
 		"exp_table": 12,
 		"percent_f": 2,
 		"skills": [70, 85, 123],
+		"stat_table": [15, 7, 18, 14, 17, 11],
 		"resistances": [1, 1, 1, 0, 0, 1, 0, 1, 3, 0, 0, 0, 2, 2, 3, 0, 1, 1, 0, 1, 0, 3, 2, 2, 2, 2, 0]
 	},
 	{
@@ -713,6 +783,7 @@ export default
 		"exp_table": 11,
 		"percent_f": 2,
 		"skills": [12, 43, 96],
+		"stat_table": [14, 8, 14, 11, 7, 9],
 		"resistances": [1, 1, 1, 1, 1, 1, 0, 1, 3, 0, 2, 0, 2, 2, 3, 0, 0, 0, 0, 1, 0, 2, 2, 2, 2, 2, 0]
 	},
 	{
@@ -723,6 +794,7 @@ export default
 		"exp_table": 4,
 		"percent_f": 2,
 		"skills": [24, 28, 215],
+		"stat_table": [11, 12, 14, 8, 18, 13],
 		"resistances": [0, 0, 0, 2, 2, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 2, 2, 2, 2, 2, 0]
 	},
 	{
@@ -733,6 +805,7 @@ export default
 		"exp_table": 6,
 		"percent_f": 2,
 		"skills": [21, 43, 96],
+		"stat_table": [17, 13, 19, 11, 16, 20],
 		"resistances": [1, 1, 1, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 2, 2, 2, 2, 2, 0]
 	},
 	{
@@ -743,6 +816,7 @@ export default
 		"exp_table": 5,
 		"percent_f": 2,
 		"skills": [60, 65, 216],
+		"stat_table": [14, 8, 17, 9, 6, 4],
 		"resistances": [0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 3, 3, 3, 3, 3, 0]
 	},
 	{
@@ -753,6 +827,7 @@ export default
 		"exp_table": 5,
 		"percent_f": 2,
 		"skills": [34, 74, 149],
+		"stat_table": [6, 18, 12, 3, 21, 19],
 		"resistances": [0, 0, 0, 3, 3, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 3, 2, 2, 0]
 	},
 	{
@@ -763,6 +838,7 @@ export default
 		"exp_table": 3,
 		"percent_f": 2,
 		"skills": [21, 25, 111],
+		"stat_table": [11, 11, 9, 12, 18, 7],
 		"resistances": [0, 0, 0, 2, 2, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 0]
 	},
 	{
@@ -773,6 +849,7 @@ export default
 		"exp_table": 4,
 		"percent_f": 2,
 		"skills": [9, 28, 70],
+		"stat_table": [9, 7, 20, 14, 23, 13],
 		"resistances": [1, 1, 1, 3, 3, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 2, 2, 2, 2, 2, 0]
 	},
 	{
@@ -783,6 +860,7 @@ export default
 		"exp_table": 5,
 		"percent_f": 2,
 		"skills": [66, 73, 138],
+		"stat_table": [6, 14, 17, 12, 18, 5],
 		"resistances": [0, 0, 0, 2, 2, 0, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 2, 2, 2, 2, 2, 0]
 	},
 	{
@@ -793,6 +871,7 @@ export default
 		"exp_table": 5,
 		"percent_f": 2,
 		"skills": [24, 36, 116],
+		"stat_table": [12, 17, 8, 15, 22, 13],
 		"resistances": [0, 0, 0, 2, 2, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 2, 2, 2, 2, 2, 0]
 	},
 	{
@@ -803,6 +882,7 @@ export default
 		"exp_table": 2,
 		"percent_f": 2,
 		"skills": [21, 26, 51],
+		"stat_table": [11, 4, 8, 13, 17, 11],
 		"resistances": [0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 2, 2, 0]
 	},
 	{
@@ -813,6 +893,7 @@ export default
 		"exp_table": 3,
 		"percent_f": 2,
 		"skills": [70, 114, 140],
+		"stat_table": [8, 5, 14, 12, 17, 8],
 		"resistances": [0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 2, 2, 0]
 	},
 	{
@@ -823,6 +904,7 @@ export default
 		"exp_table": 6,
 		"percent_f": 2,
 		"skills": [37, 87, 215],
+		"stat_table": [16, 12, 20, 20, 14, 11],
 		"resistances": [0, 0, 0, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 2, 0, 0, 0, 2, 2, 2, 2, 2, 0]
 	},
 	{
@@ -833,6 +915,7 @@ export default
 		"exp_table": 7,
 		"percent_f": 2,
 		"skills": [9, 69, 119],
+		"stat_table": [15, 10, 21, 13, 11, 18],
 		"resistances": [0, 0, 0, 2, 2, 0, 0, 1, 1, 0, 0, 1, 2, 2, 1, 0, 0, 0, 0, 0, 0, 3, 3, 3, 3, 3, 0]
 	},
 	{
@@ -843,6 +926,7 @@ export default
 		"exp_table": 5,
 		"percent_f": 2,
 		"skills": [25, 117, 120],
+		"stat_table": [17, 6, 17, 15, 20, 8],
 		"resistances": [0, 0, 0, 2, 2, 0, 0, 2, 1, 0, 0, 2, 0, 0, 0, 0, 0, 0, 2, 1, 1, 2, 2, 2, 3, 3, 0]
 	},
 	{
@@ -853,6 +937,7 @@ export default
 		"exp_table": 6,
 		"percent_f": 2,
 		"skills": [3, 46, 79],
+		"stat_table": [14, 11, 18, 12, 17, 13],
 		"resistances": [1, 1, 0, 2, 2, 1, 0, 0, 2, 0, 1, 1, 0, 0, 2, 0, 1, 2, 0, 0, 0, 2, 2, 2, 2, 2, 0]
 	},
 	{
@@ -863,6 +948,7 @@ export default
 		"exp_table": 7,
 		"percent_f": 3,
 		"skills": [18, 71, 96],
+		"stat_table": [20, 7, 11, 17, 19, 11],
 		"resistances": [1, 1, 0, 2, 2, 3, 0, 0, 2, 0, 0, 1, 0, 0, 1, 0, 1, 3, 0, 1, 0, 2, 2, 2, 2, 2, 0]
 	},
 	{
@@ -873,6 +959,7 @@ export default
 		"exp_table": 7,
 		"percent_f": 1,
 		"skills": [85, 92, 138],
+		"stat_table": [16, 13, 19, 8, 19, 12],
 		"resistances": [2, 2, 2, 1, 1, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 3, 0, 0, 1, 0, 3, 3, 3, 2, 2, 0]
 	},
 	{
@@ -883,6 +970,7 @@ export default
 		"exp_table": 7,
 		"percent_f": 2,
 		"skills": [69, 90, 100],
+		"stat_table": [20, 7, 19, 17, 22, 12],
 		"resistances": [1, 1, 1, 3, 3, 1, 0, 0, 1, 2, 0, 2, 0, 0, 1, 0, 1, 1, 0, 1, 0, 2, 2, 2, 2, 2, 0]
 	},
 	{
@@ -893,6 +981,7 @@ export default
 		"exp_table": 15,
 		"percent_f": 2,
 		"skills": [42, 131, 132],
+		"stat_table": [27, 19, 12, 20, 23, 23],
 		"resistances": [1, 1, 1, 2, 2, 1, 1, 1, 2, 0, 0, 1, 0, 0, 2, 0, 1, 1, 0, 2, 0, 2, 2, 2, 2, 2, 0]
 	},
 	{
@@ -903,6 +992,7 @@ export default
 		"exp_table": 5,
 		"percent_f": 2,
 		"skills": [110, 148, 150],
+		"stat_table": [14, 20, 8, 9, 16, 20],
 		"resistances": [0, 0, 0, 3, 3, 0, 1, 0, 2, 1, 1, 1, 0, 0, 3, 0, 0, 0, 0, 2, 0, 3, 3, 3, 2, 2, 0]
 	},
 	{
@@ -913,6 +1003,7 @@ export default
 		"exp_table": 24,
 		"percent_f": 1,
 		"skills": [102, 129, 142],
+		"stat_table": [25, 27, 15, 24, 18, 24],
 		"resistances": [2, 2, 2, 3, 2, 2, 1, 1, 2, 1, 1, 3, 1, 1, 3, 1, 2, 3, 1, 2, 1, 3, 3, 3, 3, 3, 0]
 	},
 	{
@@ -923,6 +1014,7 @@ export default
 		"exp_table": 10,
 		"percent_f": 2,
 		"skills": [28, 32, 52],
+		"stat_table": [15, 24, 11, 13, 6, 18],
 		"resistances": [0, 0, 0, 2, 2, 0, 1, 1, 1, 3, 3, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 2, 2, 2, 0, 0, 0]
 	},
 	{
@@ -933,6 +1025,7 @@ export default
 		"exp_table": 15,
 		"percent_f": 2,
 		"skills": [0, 53, 107],
+		"stat_table": [14, 26, 10, 12, 5, 17],
 		"resistances": [1, 1, 1, 2, 2, 0, 0, 0, 0, 2, 2, 0, 0, 0, 1, 0, 2, 0, 0, 0, 0, 2, 2, 2, 0, 0, 0]
 	},
 	{
@@ -943,6 +1036,7 @@ export default
 		"exp_table": 7,
 		"percent_f": 2,
 		"skills": [3, 51, 54],
+		"stat_table": [17, 20, 6, 9, 2, 19],
 		"resistances": [0, 0, 0, 2, 2, 0, 0, 0, 0, 2, 2, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 3, 3, 3, 2, 2, 0]
 	},
 	{
@@ -953,6 +1047,7 @@ export default
 		"exp_table": 7,
 		"percent_f": 2,
 		"skills": [50, 55, 77],
+		"stat_table": [12, 20, 6, 11, 14, 7],
 		"resistances": [0, 0, 0, 3, 3, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 3, 2, 2, 0]
 	},
 	{
@@ -963,6 +1058,7 @@ export default
 		"exp_table": 6,
 		"percent_f": 2,
 		"skills": [66, 105, 117],
+		"stat_table": [18, 18, 12, 15, 9, 5],
 		"resistances": [0, 0, 0, 2, 2, 0, 0, 1, 0, 2, 2, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 2, 2, 2, 1, 1, 0]
 	},
 	{
@@ -973,6 +1069,7 @@ export default
 		"exp_table": 11,
 		"percent_f": 2,
 		"skills": [9, 21, 104],
+		"stat_table": [16, 17, 9, 6, 2, 14],
 		"resistances": [1, 1, 1, 2, 2, 1, 0, 0, 1, 2, 2, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 2, 2, 2, 0, 0, 0]
 	},
 	{
@@ -983,6 +1080,7 @@ export default
 		"exp_table": 9,
 		"percent_f": 2,
 		"skills": [104, 106, 146],
+		"stat_table": [14, 18, 8, 9, 13, 13],
 		"resistances": [0, 0, 0, 2, 2, 0, 1, 1, 1, 2, 2, 1, 0, 0, 1, 0, 0, 0, 1, 1, 1, 2, 2, 2, 0, 0, 0]
 	},
 	{
@@ -993,6 +1091,7 @@ export default
 		"exp_table": 12,
 		"percent_f": 2,
 		"skills": [36, 37, 38],
+		"stat_table": [12, 24, 8, 17, 12, 10],
 		"resistances": [0, 0, 0, 2, 2, 1, 0, 0, 1, 2, 2, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 2, 2, 2, 0, 0, 0]
 	},
 	{
@@ -1003,6 +1102,7 @@ export default
 		"exp_table": 8,
 		"percent_f": 2,
 		"skills": [21, 55, 77],
+		"stat_table": [17, 11, 4, 2, 9, 14],
 		"resistances": [0, 0, 0, 2, 2, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 0, 0, 0]
 	},
 	{
@@ -1013,6 +1113,7 @@ export default
 		"exp_table": 9,
 		"percent_f": 2,
 		"skills": [26, 65, 106],
+		"stat_table": [13, 20, 14, 11, 3, 16],
 		"resistances": [0, 0, 0, 2, 2, 0, 0, 1, 0, 2, 2, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 2, 2, 2, 1, 1, 0]
 	},
 	{
@@ -1023,6 +1124,7 @@ export default
 		"exp_table": 12,
 		"percent_f": 2,
 		"skills": [113, 119, 120],
+		"stat_table": [11, 21, 7, 6, 20, 11],
 		"resistances": [1, 1, 0, 2, 2, 1, 0, 0, 2, 3, 2, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0, 2, 3, 3, 0, 0, 0]
 	},
 	{
@@ -1033,6 +1135,7 @@ export default
 		"exp_table": 11,
 		"percent_f": 2,
 		"skills": [12, 43, 54],
+		"stat_table": [15, 18, 8, 3, 12, 15],
 		"resistances": [1, 1, 1, 3, 3, 1, 0, 1, 2, 2, 2, 1, 0, 0, 2, 0, 0, 0, 0, 0, 0, 2, 2, 2, 0, 0, 0]
 	},
 	{
@@ -1043,6 +1146,7 @@ export default
 		"exp_table": 9,
 		"percent_f": 2,
 		"skills": [23, 111, 117],
+		"stat_table": [12, 20, 11, 8, 10, 17],
 		"resistances": [0, 0, 0, 2, 2, 0, 1, 2, 2, 2, 2, 1, 0, 0, 3, 0, 0, 0, 1, 2, 2, 2, 2, 2, 0, 0, 0]
 	},
 	{
@@ -1053,6 +1157,7 @@ export default
 		"exp_table": 13,
 		"percent_f": 2,
 		"skills": [84, 111, 145],
+		"stat_table": [19, 17, 7, 10, 15, 23],
 		"resistances": [0, 0, 0, 3, 3, 0, 0, 0, 2, 2, 2, 0, 0, 0, 3, 0, 0, 0, 0, 2, 0, 3, 3, 3, 1, 1, 0]
 	},
 	{
@@ -1063,6 +1168,7 @@ export default
 		"exp_table": 10,
 		"percent_f": 2,
 		"skills": [26, 37, 56],
+		"stat_table": [14, 15, 12, 14, 15, 9],
 		"resistances": [0, 0, 0, 2, 2, 0, 0, 0, 1, 2, 2, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 3, 3, 3, 2, 2, 0]
 	},
 	{
@@ -1073,6 +1179,7 @@ export default
 		"exp_table": 6,
 		"percent_f": 2,
 		"skills": [78, 105, 115],
+		"stat_table": [8, 11, 8, 5, 1, 3],
 		"resistances": [1, 1, 1, 3, 3, 1, 0, 0, 1, 2, 2, 1, 0, 0, 2, 0, 0, 0, 0, 0, 0, 2, 2, 2, 0, 0, 0]
 	},
 	{
@@ -1083,6 +1190,7 @@ export default
 		"exp_table": 9,
 		"percent_f": 2,
 		"skills": [73, 86, 106],
+		"stat_table": [14, 12, 19, 7, 10, 6],
 		"resistances": [1, 1, 1, 2, 2, 1, 0, 0, 1, 3, 3, 1, 0, 0, 2, 0, 0, 0, 0, 0, 0, 3, 3, 3, 0, 0, 0]
 	},
 	{
@@ -1093,6 +1201,7 @@ export default
 		"exp_table": 11,
 		"percent_f": 2,
 		"skills": [23, 82, 87],
+		"stat_table": [17, 14, 20, 13, 10, 16],
 		"resistances": [1, 1, 1, 2, 2, 1, 0, 0, 2, 3, 3, 1, 0, 0, 3, 0, 0, 0, 0, 0, 0, 3, 3, 3, 0, 0, 0]
 	},
 	{
@@ -1103,6 +1212,7 @@ export default
 		"exp_table": 24,
 		"percent_f": 3,
 		"skills": [80, 130, 144],
+		"stat_table": [24, 30, 23, 21, 18, 18],
 		"resistances": [1, 1, 1, 3, 3, 1, 1, 1, 2, 3, 3, 1, 1, 1, 3, 1, 1, 1, 1, 2, 1, 3, 3, 3, 1, 1, 0]
 	},
 	{
@@ -1113,6 +1223,7 @@ export default
 		"exp_table": 0,
 		"percent_f": 2,
 		"skills": [57, 126, 127],
+		"stat_table": [10, 27, 11, 14, 24, 30],
 		"resistances": [2, 2, 2, 3, 3, 3, 1, 3, 3, 3, 3, 3, 1, 1, 3, 1, 2, 3, 3, 3, 3, 3, 3, 3, 1, 1, 0]
 	},
 	{
@@ -1123,6 +1234,7 @@ export default
 		"exp_table": 2,
 		"percent_f": 2,
 		"skills": [121, 126, 140],
+		"stat_table": [11, 8, 14, 9, 11, 7],
 		"resistances": [0, 0, 0, 0, 0, 0, 1, 3, 1, 1, 1, 3, 1, 1, 1, 1, 0, 0, 2, 2, 2, 0, 0, 0, 2, 2, 0]
 	},
 	{
@@ -1133,6 +1245,7 @@ export default
 		"exp_table": 4,
 		"percent_f": 2,
 		"skills": [30, 108, 131],
+		"stat_table": [13, 5, 11, 14, 11, 9],
 		"resistances": [1, 1, 1, 0, 0, 1, 0, 2, 0, 0, 0, 2, 0, 0, 1, 0, 1, 1, 2, 2, 2, 0, 0, 0, 2, 2, 0]
 	},
 	{
@@ -1143,6 +1256,7 @@ export default
 		"exp_table": 1,
 		"percent_f": 2,
 		"skills": [18, 39, 82],
+		"stat_table": [6, 11, 14, 18, 8, 7],
 		"resistances": [0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 2, 1, 1, 0, 0, 0, 0, 2, 2, 2, 2, 2, 2, 3, 3, 0]
 	},
 	{
@@ -1153,6 +1267,7 @@ export default
 		"exp_table": 0,
 		"percent_f": 2,
 		"skills": [24, 82, 111],
+		"stat_table": [11, 2, 13, 7, 12, 8],
 		"resistances": [0, 0, 0, 1, 1, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 2, 2, 2, 1, 1, 1, 3, 3, 0]
 	},
 	{
@@ -1163,6 +1278,7 @@ export default
 		"exp_table": 4,
 		"percent_f": 2,
 		"skills": [26, 36, 38],
+		"stat_table": [17, 13, 10, 12, 5, 19],
 		"resistances": [0, 0, 0, 1, 1, 0, 0, 2, 0, 1, 1, 2, 0, 0, 0, 0, 0, 0, 2, 2, 2, 1, 1, 1, 2, 2, 0]
 	},
 	{
@@ -1173,6 +1289,7 @@ export default
 		"exp_table": 6,
 		"percent_f": 2,
 		"skills": [55, 74, 117],
+		"stat_table": [13, 8, 16, 8, 13, 14],
 		"resistances": [1, 1, 1, 1, 1, 1, 0, 2, 1, 0, 0, 2, 0, 0, 1, 0, 0, 0, 2, 2, 2, 0, 0, 0, 2, 2, 0]
 	},
 	{
@@ -1183,6 +1300,7 @@ export default
 		"exp_table": 4,
 		"percent_f": 2,
 		"skills": [104, 112, 121],
+		"stat_table": [12, 8, 9, 9, 4, 1],
 		"resistances": [0, 0, 0, 0, 0, 0, 1, 3, 1, 0, 0, 3, 0, 0, 1, 0, 0, 0, 3, 3, 3, 0, 0, 0, 2, 2, 0]
 	},
 	{
@@ -1193,6 +1311,7 @@ export default
 		"exp_table": 3,
 		"percent_f": 2,
 		"skills": [21, 92, 123],
+		"stat_table": [13, 7, 16, 20, 9, 7],
 		"resistances": [1, 1, 0, 0, 0, 1, 0, 2, 1, 0, 0, 2, 0, 0, 1, 0, 1, 1, 2, 2, 2, 0, 0, 0, 2, 2, 0]
 	},
 	{
@@ -1203,6 +1322,7 @@ export default
 		"exp_table": 2,
 		"percent_f": 2,
 		"skills": [62, 82, 104],
+		"stat_table": [8, 4, 11, 17, 13, 1],
 		"resistances": [0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 2, 2, 2, 0, 0, 0, 2, 2, 0]
 	},
 	{
@@ -1213,6 +1333,7 @@ export default
 		"exp_table": 0,
 		"percent_f": 2,
 		"skills": [26, 65, 82],
+		"stat_table": [11, 4, 8, 14, 14, 4],
 		"resistances": [0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 2, 2, 2, 0, 0, 0, 2, 2, 0]
 	},
 	{
@@ -1223,6 +1344,7 @@ export default
 		"exp_table": 5,
 		"percent_f": 2,
 		"skills": [71, 108, 115],
+		"stat_table": [12, 10, 16, 11, 14, 5],
 		"resistances": [0, 0, 0, 1, 1, 0, 0, 2, 0, 1, 1, 2, 0, 0, 0, 0, 0, 0, 2, 2, 2, 1, 2, 2, 2, 2, 0]
 	},
 	{
@@ -1233,6 +1355,7 @@ export default
 		"exp_table": 6,
 		"percent_f": 2,
 		"skills": [30, 37, 59],
+		"stat_table": [15, 10, 17, 20, 11, 2],
 		"resistances": [1, 1, 1, 1, 1, 1, 0, 2, 0, 0, 0, 2, 0, 0, 0, 0, 1, 1, 2, 2, 2, 1, 1, 1, 3, 3, 0]
 	},
 	{
@@ -1243,6 +1366,7 @@ export default
 		"exp_table": 4,
 		"percent_f": 2,
 		"skills": [3, 43, 56],
+		"stat_table": [9, 11, 6, 3, 10, 9],
 		"resistances": [0, 0, 0, 1, 1, 0, 0, 2, 1, 1, 1, 2, 0, 0, 1, 0, 0, 0, 2, 2, 2, 1, 1, 1, 2, 2, 0]
 	},
 	{
@@ -1253,6 +1377,7 @@ export default
 		"exp_table": 2,
 		"percent_f": 2,
 		"skills": [88, 105, 115],
+		"stat_table": [14, 9, 16, 12, 20, 12],
 		"resistances": [0, 0, 0, 0, 0, 0, 0, 3, 1, 0, 0, 2, 1, 1, 1, 0, 0, 0, 3, 2, 2, 1, 1, 1, 3, 3, 0]
 	},
 	{
@@ -1263,6 +1388,7 @@ export default
 		"exp_table": 5,
 		"percent_f": 2,
 		"skills": [32, 55, 216],
+		"stat_table": [17, 10, 15, 16, 7, 14],
 		"resistances": [0, 0, 0, 0, 0, 0, 1, 3, 1, 1, 0, 3, 0, 0, 1, 0, 0, 0, 3, 3, 3, 1, 1, 1, 2, 2, 0]
 	},
 	{
@@ -1273,6 +1399,7 @@ export default
 		"exp_table": 6,
 		"percent_f": 2,
 		"skills": [30, 72, 82],
+		"stat_table": [16, 8, 14, 19, 5, 1],
 		"resistances": [0, 0, 0, 0, 0, 0, 1, 3, 1, 0, 0, 3, 0, 0, 0, 0, 0, 0, 3, 3, 3, 0, 0, 0, 3, 3, 0]
 	},
 	{
@@ -1283,6 +1410,7 @@ export default
 		"exp_table": 7,
 		"percent_f": 2,
 		"skills": [103, 105, 138],
+		"stat_table": [20, 5, 19, 13, 20, 4],
 		"resistances": [1, 1, 1, 0, 0, 1, 0, 2, 0, 0, 0, 2, 1, 1, 0, 0, 1, 1, 2, 2, 2, 1, 1, 1, 3, 3, 0]
 	},
 	{
@@ -1293,6 +1421,7 @@ export default
 		"exp_table": 7,
 		"percent_f": 2,
 		"skills": [69, 76, 91],
+		"stat_table": [21, 19, 23, 20, 12, 14],
 		"resistances": [2, 2, 2, 0, 0, 2, 0, 2, 1, 0, 0, 2, 0, 0, 1, 0, 2, 2, 2, 3, 2, 0, 0, 0, 2, 2, 0]
 	},
 	{
@@ -1303,6 +1432,7 @@ export default
 		"exp_table": 24,
 		"percent_f": 2,
 		"skills": [64, 77, 87],
+		"stat_table": [22, 20, 24, 23, 15, 18],
 		"resistances": [2, 2, 2, 1, 1, 2, 1, 3, 2, 1, 1, 3, 1, 1, 3, 1, 2, 2, 3, 3, 3, 1, 1, 1, 3, 3, 0]
 	},
 	{
@@ -1313,6 +1443,7 @@ export default
 		"exp_table": 11,
 		"percent_f": 2,
 		"skills": [50, 142, 143],
+		"stat_table": [24, 10, 19, 26, 1, 15],
 		"resistances": [1, 1, 1, 0, 0, 1, 1, 2, 2, 0, 0, 2, 0, 0, 3, 0, 1, 1, 2, 2, 2, 0, 0, 0, 2, 2, 0]
 	},
 	{
@@ -1323,6 +1454,7 @@ export default
 		"exp_table": 19,
 		"percent_f": 2,
 		"skills": [34, 37, 51],
+		"stat_table": [11, 7, 15, 8, 15, 4],
 		"resistances": [2, 2, 1, 1, 1, 2, 1, 1, 3, 2, 2, 2, 1, 1, 3, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 	},
 	{
@@ -1333,6 +1465,7 @@ export default
 		"exp_table": 20,
 		"percent_f": 2,
 		"skills": [6, 69, 75],
+		"stat_table": [14, 13, 17, 12, 7, 21],
 		"resistances": [2, 3, 2, 2, 2, 2, 0, 0, 3, 0, 1, 0, 0, 0, 3, 0, 1, 0, 0, 2, 1, 0, 0, 0, 0, 1, 0]
 	},
 	{
@@ -1343,6 +1476,7 @@ export default
 		"exp_table": 16,
 		"percent_f": 2,
 		"skills": [3, 20, 106],
+		"stat_table": [16, 11, 18, 12, 16, 19],
 		"resistances": [1, 1, 2, 2, 2, 2, 0, 0, 2, 0, 0, 0, 1, 1, 2, 0, 0, 0, 0, 0, 0, 2, 1, 1, 2, 1, 0]
 	},
 	{
@@ -1353,6 +1487,7 @@ export default
 		"exp_table": 13,
 		"percent_f": 2,
 		"skills": [0, 68, 96],
+		"stat_table": [13, 1, 5, 4, 9, 20],
 		"resistances": [1, 1, 1, 3, 3, 2, 0, 0, 2, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 1, 2, 2, 2, 1, 0]
 	},
 	{
@@ -1363,6 +1498,7 @@ export default
 		"exp_table": 18,
 		"percent_f": 2,
 		"skills": [72, 107, 115],
+		"stat_table": [11, 18, 10, 16, 9, 12],
 		"resistances": [2, 2, 1, 3, 3, 1, 0, 0, 2, 1, 1, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 2, 2, 1, 0, 0, 0]
 	},
 	{
@@ -1373,6 +1509,7 @@ export default
 		"exp_table": 16,
 		"percent_f": 2,
 		"skills": [39, 42, 125],
+		"stat_table": [16, 17, 14, 14, 13, 8],
 		"resistances": [2, 2, 2, 2, 2, 2, 0, 1, 2, 0, 0, 1, 0, 0, 2, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 0]
 	},
 	{
@@ -1383,6 +1520,7 @@ export default
 		"exp_table": 18,
 		"percent_f": 2,
 		"skills": [68, 87, 123],
+		"stat_table": [17, 11, 17, 13, 15, 12],
 		"resistances": [2, 2, 2, 1, 1, 2, 1, 1, 3, 0, 0, 1, 0, 0, 3, 0, 0, 0, 2, 2, 1, 0, 0, 0, 0, 0, 0]
 	},
 	{
@@ -1393,6 +1531,7 @@ export default
 		"exp_table": 20,
 		"percent_f": 2,
 		"skills": [3, 42, 96],
+		"stat_table": [16, 10, 20, 22, 4, 12],
 		"resistances": [2, 2, 1, 2, 2, 3, 0, 0, 3, 1, 1, 1, 0, 0, 3, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 	},
 	{
@@ -1403,6 +1542,7 @@ export default
 		"exp_table": 13,
 		"percent_f": 2,
 		"skills": [0, 3, 12],
+		"stat_table": [10, 1, 5, 9, 9, 17],
 		"resistances": [1, 1, 1, 2, 2, 2, 0, 0, 3, 0, 1, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 	},
 	{
@@ -1413,6 +1553,7 @@ export default
 		"exp_table": 13,
 		"percent_f": 2,
 		"skills": [3, 23, 43],
+		"stat_table": [13, 7, 8, 4, 2, 18],
 		"resistances": [2, 2, 2, 1, 1, 1, 0, 0, 3, 0, 0, 1, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 	},
 	{
@@ -1423,6 +1564,7 @@ export default
 		"exp_table": 19,
 		"percent_f": 2,
 		"skills": [24, 28, 216],
+		"stat_table": [11, 13, 14, 15, 8, 11],
 		"resistances": [2, 2, 2, 1, 1, 1, 0, 1, 2, 0, 0, 1, 0, 0, 2, 0, 0, 0, 2, 2, 2, 1, 1, 0, 1, 1, 0]
 	},
 	{
@@ -1433,6 +1575,7 @@ export default
 		"exp_table": 21,
 		"percent_f": 2,
 		"skills": [9, 46, 70],
+		"stat_table": [15, 11, 14, 15, 12, 19],
 		"resistances": [3, 3, 2, 2, 2, 2, 0, 0, 3, 1, 1, 1, 0, 0, 3, 0, 2, 2, 0, 0, 2, 0, 0, 0, 0, 0, 0]
 	},
 	{
@@ -1443,6 +1586,7 @@ export default
 		"exp_table": 22,
 		"percent_f": 2,
 		"skills": [6, 9, 12],
+		"stat_table": [20, 11, 17, 13, 11, 20],
 		"resistances": [2, 2, 2, 2, 2, 2, 0, 0, 3, 0, 1, 1, 2, 2, 3, 0, 0, 0, 0, 0, 0, 2, 2, 2, 2, 2, 0]
 	},
 	{
@@ -1453,6 +1597,7 @@ export default
 		"exp_table": 17,
 		"percent_f": 2,
 		"skills": [28, 48, 75],
+		"stat_table": [19, 7, 19, 13, 13, 18],
 		"resistances": [1, 1, 1, 3, 3, 2, 0, 0, 2, 1, 1, 0, 1, 1, 2, 0, 0, 0, 0, 0, 0, 2, 2, 2, 0, 0, 0]
 	},
 	{
@@ -1463,6 +1608,7 @@ export default
 		"exp_table": 19,
 		"percent_f": 2,
 		"skills": [63, 72, 87],
+		"stat_table": [15, 8, 20, 12, 10, 12],
 		"resistances": [1, 1, 2, 2, 2, 2, 0, 0, 2, 0, 0, 0, 1, 1, 2, 0, 0, 0, 0, 0, 0, 2, 2, 2, 2, 1, 0]
 	},
 	{
@@ -1473,6 +1619,7 @@ export default
 		"exp_table": 23,
 		"percent_f": 2,
 		"skills": [0, 78, 131],
+		"stat_table": [18, 12, 18, 14, 10, 14],
 		"resistances": [2, 2, 2, 3, 3, 2, 1, 1, 3, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 1, 2, 2, 2, 1, 0]
 	},
 	{
@@ -1483,6 +1630,7 @@ export default
 		"exp_table": 22,
 		"percent_f": 2,
 		"skills": [37, 70, 85],
+		"stat_table": [17, 12, 20, 11, 20, 15],
 		"resistances": [2, 2, 2, 2, 2, 3, 1, 0, 3, 1, 1, 0, 1, 1, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 	},
 	{
@@ -1493,6 +1641,7 @@ export default
 		"exp_table": 20,
 		"percent_f": 2,
 		"skills": [68, 73, 136],
+		"stat_table": [23, 1, 18, 24, 12, 12],
 		"resistances": [2, 2, 2, 2, 2, 1, 1, 1, 3, 1, 1, 1, 1, 1, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 	},
 	{
@@ -1503,6 +1652,7 @@ export default
 		"exp_table": 30,
 		"percent_f": 2,
 		"skills": [6, 84, 96],
+		"stat_table": [24, 30, 23, 21, 18, 21],
 		"resistances": [2, 2, 3, 2, 2, 2, 1, 2, 3, 1, 3, 2, 1, 1, 3, 0, 2, 1, 0, 2, 0, 1, 0, 0, 0, 0, 0]
 	},
 	{
@@ -1513,6 +1663,7 @@ export default
 		"exp_table": 23,
 		"percent_f": 2,
 		"skills": [63, 74, 217],
+		"stat_table": [17, 9, 18, 20, 10, 12],
 		"resistances": [2, 2, 1, 1, 1, 2, 1, 1, 3, 0, 1, 1, 1, 1, 3, 0, 1, 1, 0, 2, 0, 1, 0, 0, 0, 0, 0]
 	},
 	{
@@ -1523,6 +1674,7 @@ export default
 		"exp_table": 22,
 		"percent_f": 2,
 		"skills": [64, 65, 77],
+		"stat_table": [27, 0, 27, 7, 0, 0],
 		"resistances": [1, 1, 1, 1, 1, 1, 0, 1, 3, 0, 0, 0, 2, 2, 3, 0, 0, 0, 0, 2, 0, 2, 1, 1, 1, 1, 0]
 	},
 	{
@@ -1533,6 +1685,7 @@ export default
 		"exp_table": 23,
 		"percent_f": 2,
 		"skills": [23, 68, 87],
+		"stat_table": [20, 1, 24, 21, 18, 19],
 		"resistances": [3, 3, 2, 1, 1, 2, 0, 0, 2, 0, 1, 1, 1, 1, 3, 0, 1, 1, 0, 2, 0, 1, 0, 0, 0, 0, 0]
 	},
 	{
@@ -1543,6 +1696,7 @@ export default
 		"exp_table": 22,
 		"percent_f": 2,
 		"skills": [68, 69, 73],
+		"stat_table": [16, 1, 17, 29, 5, 13],
 		"resistances": [2, 2, 2, 2, 2, 1, 0, 1, 3, 0, 0, 1, 0, 0, 2, 0, 0, 0, 1, 2, 1, 1, 0, 0, 1, 1, 0]
 	},
 	{
@@ -1553,6 +1707,7 @@ export default
 		"exp_table": 21,
 		"percent_f": 2,
 		"skills": [0, 80, 138],
+		"stat_table": [24, 9, 21, 24, 23, 18],
 		"resistances": [2, 2, 2, 3, 3, 1, 1, 1, 3, 1, 1, 1, 1, 1, 3, 0, 0, 0, 0, 2, 0, 1, 1, 1, 1, 1, 0]
 	},
 	{
@@ -1563,6 +1718,7 @@ export default
 		"exp_table": 28,
 		"percent_f": 2,
 		"skills": [73, 75, 88],
+		"stat_table": [25, 24, 23, 15, 17, 20],
 		"resistances": [2, 2, 3, 2, 1, 3, 2, 2, 3, 1, 2, 2, 1, 1, 3, 1, 1, 1, 3, 3, 2, 1, 0, 0, 0, 0, 0]
 	},
 	{
@@ -1573,6 +1729,7 @@ export default
 		"exp_table": 11,
 		"percent_f": 2,
 		"skills": [115, 121, 146],
+		"stat_table": [11, 12, 13, 8, 18, 15],
 		"resistances": [0, 0, 0, 0, 0, 0, 3, 3, 3, 1, 1, 3, 1, 1, 3, 1, 0, 0, 2, 2, 2, 0, 0, 0, 0, 0, 0]
 	},
 	{
@@ -1583,6 +1740,7 @@ export default
 		"exp_table": 13,
 		"percent_f": 2,
 		"skills": [59, 71, 96],
+		"stat_table": [6, 1, 23, 15, 4, 6],
 		"resistances": [1, 1, 1, 0, 0, 2, 2, 2, 2, 0, 0, 2, 0, 0, 3, 0, 0, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0]
 	},
 	{
@@ -1593,6 +1751,7 @@ export default
 		"exp_table": 6,
 		"percent_f": 2,
 		"skills": [28, 32, 39],
+		"stat_table": [17, 13, 17, 8, 11, 4],
 		"resistances": [0, 0, 0, 0, 0, 0, 2, 2, 2, 0, 0, 2, 1, 1, 2, 0, 0, 0, 2, 2, 2, 1, 1, 1, 1, 1, 0]
 	},
 	{
@@ -1603,6 +1762,7 @@ export default
 		"exp_table": 5,
 		"percent_f": 2,
 		"skills": [62, 69, 90],
+		"stat_table": [14, 8, 12, 11, 18, 9],
 		"resistances": [0, 0, 0, 1, 1, 0, 2, 2, 2, 0, 0, 2, 0, 0, 2, 0, 0, 0, 2, 2, 2, 1, 1, 1, 1, 1, 0]
 	},
 	{
@@ -1613,6 +1773,7 @@ export default
 		"exp_table": 10,
 		"percent_f": 2,
 		"skills": [64, 82, 105],
+		"stat_table": [15, 17, 12, 9, 4, 8],
 		"resistances": [0, 0, 0, 1, 1, 0, 2, 2, 2, 1, 1, 2, 0, 0, 2, 0, 0, 0, 2, 2, 2, 1, 1, 1, 0, 0, 0]
 	},
 	{
@@ -1623,6 +1784,7 @@ export default
 		"exp_table": 8,
 		"percent_f": 2,
 		"skills": [38, 42, 55],
+		"stat_table": [12, 8, 15, 20, 1, 11],
 		"resistances": [0, 0, 0, 0, 0, 0, 2, 3, 2, 0, 0, 3, 0, 0, 2, 0, 0, 0, 3, 3, 3, 0, 0, 0, 1, 1, 0]
 	},
 	{
@@ -1633,6 +1795,7 @@ export default
 		"exp_table": 13,
 		"percent_f": 2,
 		"skills": [43, 53, 54],
+		"stat_table": [17, 7, 19, 9, 12, 8],
 		"resistances": [1, 1, 1, 1, 1, 1, 2, 2, 3, 0, 0, 2, 0, 0, 3, 0, 0, 0, 2, 2, 2, 0, 0, 0, 0, 0, 0]
 	},
 	{
@@ -1643,6 +1806,7 @@ export default
 		"exp_table": 12,
 		"percent_f": 2,
 		"skills": [96, 113, 131],
+		"stat_table": [9, 6, 6, 20, 8, 12],
 		"resistances": [0, 0, 0, 0, 0, 1, 2, 2, 3, 0, 0, 2, 0, 0, 3, 0, 0, 1, 2, 2, 2, 0, 0, 0, 0, 0, 0]
 	},
 	{
@@ -1653,6 +1817,7 @@ export default
 		"exp_table": 8,
 		"percent_f": 2,
 		"skills": [108, 116, 121],
+		"stat_table": [17, 13, 16, 8, 11, 10],
 		"resistances": [0, 0, 0, 0, 0, 0, 2, 2, 2, 0, 0, 2, 0, 0, 2, 0, 0, 0, 2, 2, 2, 0, 0, 0, 0, 0, 0]
 	},
 	{
@@ -1663,6 +1828,7 @@ export default
 		"exp_table": 10,
 		"percent_f": 2,
 		"skills": [18, 43, 48],
+		"stat_table": [6, 10, 11, 17, 7, 14],
 		"resistances": [0, 0, 0, 0, 0, 0, 2, 3, 2, 0, 0, 3, 1, 1, 2, 0, 0, 0, 3, 3, 3, 0, 0, 0, 1, 1, 0]
 	},
 	{
@@ -1673,6 +1839,7 @@ export default
 		"exp_table": 12,
 		"percent_f": 2,
 		"skills": [88, 90, 92],
+		"stat_table": [17, 4, 10, 3, 15, 9],
 		"resistances": [0, 0, 0, 2, 1, 1, 2, 2, 2, 0, 0, 2, 0, 0, 2, 0, 0, 0, 2, 2, 2, 1, 1, 1, 1, 1, 0]
 	},
 	{
@@ -1683,6 +1850,7 @@ export default
 		"exp_table": 13,
 		"percent_f": 2,
 		"skills": [106, 115, 131],
+		"stat_table": [14, 12, 15, 12, 16, 10],
 		"resistances": [0, 0, 0, 1, 1, 1, 2, 2, 3, 1, 1, 3, 0, 0, 3, 0, 0, 0, 2, 2, 2, 1, 1, 1, 0, 0, 0]
 	},
 	{
@@ -1693,6 +1861,7 @@ export default
 		"exp_table": 9,
 		"percent_f": 2,
 		"skills": [9, 36, 54],
+		"stat_table": [16, 19, 19, 12, 13, 6],
 		"resistances": [0, 0, 0, 3, 1, 0, 2, 2, 2, 0, 0, 2, 1, 1, 2, 0, 0, 0, 2, 2, 2, 1, 1, 1, 1, 1, 0]
 	},
 	{
@@ -1703,6 +1872,7 @@ export default
 		"exp_table": 10,
 		"percent_f": 2,
 		"skills": [76, 111, 116],
+		"stat_table": [19, 3, 21, 17, 19, 6],
 		"resistances": [0, 0, 0, 1, 1, 0, 2, 3, 2, 1, 1, 3, 0, 0, 2, 0, 0, 1, 3, 3, 3, 1, 1, 0, 1, 1, 0]
 	},
 	{
@@ -1713,6 +1883,7 @@ export default
 		"exp_table": 16,
 		"percent_f": 2,
 		"skills": [18, 46, 132],
+		"stat_table": [21, 2, 26, 19, 15, 13],
 		"resistances": [1, 1, 1, 2, 1, 2, 2, 2, 3, 1, 1, 2, 0, 0, 3, 0, 0, 2, 2, 3, 2, 1, 0, 0, 0, 0, 0]
 	},
 	{
@@ -1723,6 +1894,7 @@ export default
 		"exp_table": 25,
 		"percent_f": 2,
 		"skills": [9, 15, 57],
+		"stat_table": [20, 24, 14, 20, 15, 27],
 		"resistances": [1, 1, 2, 3, 1, 3, 2, 2, 3, 1, 1, 3, 1, 1, 3, 1, 1, 2, 3, 3, 3, 1, 1, 1, 1, 1, 0]
 	},
 	{
@@ -1733,6 +1905,7 @@ export default
 		"exp_table": 10,
 		"percent_f": 2,
 		"skills": [6, 69, 75],
+		"stat_table": [14, 13, 17, 12, 7, 1],
 		"resistances": [0, 0, 0, 1, 0, 1, 2, 2, 2, 1, 1, 2, 0, 0, 2, 0, 0, 0, 2, 2, 2, 0, 0, 0, 0, 0, 0]
 	},
 	{
@@ -1743,6 +1916,7 @@ export default
 		"exp_table": 12,
 		"percent_f": 2,
 		"skills": [28, 75, 80],
+		"stat_table": [16, 11, 18, 12, 16, 19],
 		"resistances": [0, 0, 1, 2, 0, 2, 2, 2, 3, 1, 1, 2, 0, 0, 3, 0, 0, 1, 2, 2, 2, 0, 0, 0, 0, 0, 0]
 	},
 	{
@@ -1753,6 +1927,7 @@ export default
 		"exp_table": 20,
 		"percent_f": 2,
 		"skills": [0, 12, 84],
+		"stat_table": [23, 21, 25, 18, 15, 20],
 		"resistances": [1, 1, 3, 2, 1, 2, 2, 2, 3, 1, 1, 3, 1, 1, 3, 1, 1, 2, 3, 3, 3, 1, 1, 1, 1, 1, 0]
 	},
 	{
@@ -1763,6 +1938,7 @@ export default
 		"exp_table": 1,
 		"percent_f": 2,
 		"skills": [41, 117, 127],
+		"stat_table": [11, 20, 1, 2, 21, 5],
 		"resistances": [0, 0, 0, 0, 0, 0, 2, 2, 3, 0, 0, 2, 0, 0, 2, 0, 0, 0, 2, 3, 2, 1, 0, 0, 0, 0, 0]
 	},
 	{
@@ -1773,6 +1949,7 @@ export default
 		"exp_table": 12,
 		"percent_f": 2,
 		"skills": [3, 23, 25],
+		"stat_table": [13, 11, 9, 18, 17, 15],
 		"resistances": [0, 0, 0, 0, 0, 2, 1, 1, 3, 1, 1, 1, 1, 1, 3, 1, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 	},
 	{
@@ -1783,6 +1960,7 @@ export default
 		"exp_table": 14,
 		"percent_f": 2,
 		"skills": [53, 56, 96],
+		"stat_table": [14, 15, 17, 12, 9, 13],
 		"resistances": [1, 1, 1, 0, 0, 2, 0, 0, 3, 0, 0, 0, 0, 0, 3, 0, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 	},
 	{
@@ -1793,6 +1971,7 @@ export default
 		"exp_table": 10,
 		"percent_f": 2,
 		"skills": [0, 86, 126],
+		"stat_table": [12, 10, 14, 6, 17, 12],
 		"resistances": [2, 2, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 1, 1, 2, 0, 2, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0]
 	},
 	{
@@ -1803,6 +1982,7 @@ export default
 		"exp_table": 8,
 		"percent_f": 2,
 		"skills": [52, 53, 143],
+		"stat_table": [16, 13, 5, 14, 14, 7],
 		"resistances": [0, 0, 0, 1, 1, 2, 0, 0, 2, 0, 0, 0, 0, 0, 2, 0, 0, 2, 0, 0, 0, 1, 1, 1, 1, 1, 0]
 	},
 	{
@@ -1813,6 +1993,7 @@ export default
 		"exp_table": 12,
 		"percent_f": 2,
 		"skills": [9, 20, 149],
+		"stat_table": [8, 23, 11, 12, 3, 19],
 		"resistances": [0, 0, 0, 1, 1, 2, 0, 0, 2, 1, 1, 0, 0, 0, 2, 0, 0, 2, 0, 0, 0, 1, 1, 1, 0, 0, 0]
 	},
 	{
@@ -1823,6 +2004,7 @@ export default
 		"exp_table": 8,
 		"percent_f": 2,
 		"skills": [20, 66, 214],
+		"stat_table": [9, 13, 14, 17, 7, 11],
 		"resistances": [0, 0, 0, 0, 0, 2, 0, 1, 2, 0, 0, 1, 0, 0, 2, 0, 0, 2, 1, 1, 1, 0, 0, 0, 1, 1, 0]
 	},
 	{
@@ -1833,6 +2015,7 @@ export default
 		"exp_table": 14,
 		"percent_f": 2,
 		"skills": [39, 41, 56],
+		"stat_table": [15, 11, 8, 6, 11, 19],
 		"resistances": [1, 1, 1, 1, 1, 2, 0, 0, 3, 0, 0, 0, 0, 0, 3, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 	},
 	{
@@ -1843,6 +2026,7 @@ export default
 		"exp_table": 12,
 		"percent_f": 2,
 		"skills": [43, 64, 72],
+		"stat_table": [14, 4, 20, 21, 10, 13],
 		"resistances": [0, 0, 0, 0, 0, 2, 1, 1, 3, 0, 0, 1, 0, 0, 3, 0, 0, 2, 1, 1, 1, 0, 0, 0, 0, 0, 0]
 	},
 	{
@@ -1853,6 +2037,7 @@ export default
 		"exp_table": 8,
 		"percent_f": 2,
 		"skills": [82, 123, 140],
+		"stat_table": [8, 13, 11, 14, 7, 4],
 		"resistances": [0, 0, 0, 0, 0, 2, 0, 0, 2, 0, 0, 0, 0, 0, 2, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 	},
 	{
@@ -1863,6 +2048,7 @@ export default
 		"exp_table": 11,
 		"percent_f": 2,
 		"skills": [24, 25, 28],
+		"stat_table": [14, 17, 12, 12, 8, 14],
 		"resistances": [0, 0, 0, 0, 0, 2, 0, 1, 2, 0, 0, 1, 0, 0, 2, 0, 0, 2, 2, 2, 1, 0, 0, 0, 1, 1, 0]
 	},
 	{
@@ -1873,6 +2059,7 @@ export default
 		"exp_table": 15,
 		"percent_f": 2,
 		"skills": [63, 91, 114],
+		"stat_table": [18, 13, 20, 23, 9, 10],
 		"resistances": [1, 1, 1, 0, 0, 2, 0, 0, 2, 0, 0, 0, 0, 0, 3, 0, 1, 3, 2, 2, 0, 0, 0, 0, 0, 0, 0]
 	},
 	{
@@ -1883,6 +2070,7 @@ export default
 		"exp_table": 13,
 		"percent_f": 2,
 		"skills": [6, 15, 79],
+		"stat_table": [21, 11, 23, 21, 18, 19],
 		"resistances": [0, 0, 0, 0, 0, 2, 1, 1, 2, 1, 1, 1, 1, 1, 2, 1, 0, 2, 0, 0, 0, 1, 1, 1, 1, 1, 0]
 	},
 	{
@@ -1893,6 +2081,7 @@ export default
 		"exp_table": 11,
 		"percent_f": 2,
 		"skills": [26, 76, 105],
+		"stat_table": [8, 3, 9, 11, 12, 6],
 		"resistances": [0, 0, 1, 1, 0, 2, 0, 1, 2, 1, 1, 1, 0, 0, 2, 0, 0, 2, 1, 1, 1, 0, 0, 0, 1, 1, 0]
 	},
 	{
@@ -1903,6 +2092,7 @@ export default
 		"exp_table": 9,
 		"percent_f": 2,
 		"skills": [30, 34, 37],
+		"stat_table": [12, 18, 9, 19, 13, 15],
 		"resistances": [0, 0, 0, 2, 1, 2, 0, 0, 2, 1, 1, 0, 0, 0, 2, 0, 0, 2, 0, 0, 0, 2, 2, 2, 0, 0, 0]
 	},
 	{
@@ -1913,6 +2103,7 @@ export default
 		"exp_table": 13,
 		"percent_f": 2,
 		"skills": [80, 85, 87],
+		"stat_table": [12, 5, 21, 22, 24, 17],
 		"resistances": [1, 1, 1, 1, 1, 2, 1, 2, 3, 0, 0, 0, 0, 0, 3, 0, 1, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0]
 	},
 	{
@@ -1923,6 +2114,7 @@ export default
 		"exp_table": 11,
 		"percent_f": 2,
 		"skills": [18, 21, 63],
+		"stat_table": [18, 19, 15, 18, 9, 19],
 		"resistances": [0, 0, 0, 0, 0, 2, 2, 2, 3, 1, 1, 1, 1, 1, 3, 1, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 	},
 	{
@@ -1933,6 +2125,7 @@ export default
 		"exp_table": 9,
 		"percent_f": 2,
 		"skills": [67, 92, 96],
+		"stat_table": [13, 15, 11, 14, 20, 18],
 		"resistances": [0, 0, 0, 2, 1, 2, 0, 0, 2, 0, 0, 0, 0, 1, 2, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 	},
 	{
@@ -1943,6 +2136,7 @@ export default
 		"exp_table": 13,
 		"percent_f": 2,
 		"skills": [0, 92, 136],
+		"stat_table": [18, 12, 17, 24, 4, 7],
 		"resistances": [3, 3, 1, 2, 0, 1, 0, 0, 3, 0, 0, 1, 0, 0, 3, 0, 3, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 	},
 	{
@@ -1953,6 +2147,7 @@ export default
 		"exp_table": 13,
 		"percent_f": 2,
 		"skills": [12, 96, 142],
+		"stat_table": [16, 6, 18, 24, 4, 7],
 		"resistances": [1, 1, 1, 2, 0, 3, 0, 0, 3, 0, 0, 0, 1, 0, 3, 0, 1, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 	},
 	{
@@ -1963,6 +2158,7 @@ export default
 		"exp_table": 11,
 		"percent_f": 2,
 		"skills": [0, 18, 55],
+		"stat_table": [25, 10, 20, 12, 1, 20],
 		"resistances": [0, 0, 1, 2, 1, 2, 1, 1, 3, 1, 1, 1, 1, 1, 3, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 	},
 	{
@@ -1973,6 +2169,7 @@ export default
 		"exp_table": 8,
 		"percent_f": 2,
 		"skills": [117, 119, 148],
+		"stat_table": [12, 3, 13, 14, 1, 15],
 		"resistances": [0, 0, 1, 1, 0, 3, 1, 0, 3, 0, 0, 0, 0, 0, 3, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 	},
 	{
@@ -1983,6 +2180,7 @@ export default
 		"exp_table": 18,
 		"percent_f": 2,
 		"skills": [65, 86, 142],
+		"stat_table": [17, 4, 12, 21, 4, 6],
 		"resistances": [0, 0, 1, 1, 0, 3, 1, 1, 3, 0, 0, 0, 0, 0, 3, 0, 0, 3, 0, 0, 0, 1, 1, 1, 1, 1, 0]
 	},
 	{
@@ -1993,6 +2191,7 @@ export default
 		"exp_table": 15,
 		"percent_f": 2,
 		"skills": [136, 143, 147],
+		"stat_table": [24, 10, 23, 24, 1, 14],
 		"resistances": [1, 1, 1, 1, 0, 3, 1, 1, 3, 0, 1, 0, 0, 0, 3, 0, 1, 3, 0, 2, 1, 1, 1, 1, 1, 1, 0]
 	},
 	{
@@ -2003,6 +2202,7 @@ export default
 		"exp_table": 14,
 		"percent_f": 2,
 		"skills": [20, 50, 147],
+		"stat_table": [15, 11, 17, 20, 0, 13],
 		"resistances": [1, 1, 0, 0, 0, 2, 0, 1, 3, 1, 1, 1, 1, 1, 3, 0, 1, 2, 1, 1, 1, 0, 0, 0, 1, 1, 0]
 	},
 	{
@@ -2013,6 +2213,7 @@ export default
 		"exp_table": 18,
 		"percent_f": 1,
 		"skills": [101, 129, 132],
+		"stat_table": [24, 21, 24, 27, 17, 23],
 		"resistances": [2, 2, 2, 2, 1, 2, 3, 3, 3, 3, 3, 3, 2, 2, 3, 1, 2, 2, 3, 3, 3, 2, 2, 2, 1, 1, 0]
 	},
 	{
@@ -2024,6 +2225,7 @@ export default
 		"exp_table": 24,
 		"percent_f": 0,
 		"skills": [3, 147, 213],
+		"stat_table": [20, 30, 21, 20, 23, 23],
 		"resistances": [1, 1, 0, 0, 0, 1, 3, 3, 3, 2, 3, 3, 3, 3, 3, 0, 1, 1, 3, 2, 3, 3, 3, 3, 0, 0, 0]
 	},
 	{
@@ -2035,6 +2237,7 @@ export default
 		"exp_table": 25,
 		"percent_f": 0,
 		"skills": [63, 92, 129],
+		"stat_table": [21, 30, 24, 21, 23, 21],
 		"resistances": [2, 2, 1, 1, 1, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 1, 2, 2, 3, 3, 3, 3, 3, 3, 1, 1, 0]
 	},
 	{
@@ -2045,6 +2248,7 @@ export default
 		"exp_table": 24,
 		"percent_f": 0,
 		"skills": [3, 6, 132],
+		"stat_table": [19, 30, 20, 21, 23, 23],
 		"resistances": [1, 1, 1, 1, 0, 1, 3, 3, 3, 2, 3, 3, 3, 3, 3, 1, 0, 0, 3, 2, 3, 3, 3, 3, 2, 0, 0]
 	},
 	{
@@ -2055,6 +2259,7 @@ export default
 		"exp_table": 25,
 		"percent_f": 0,
 		"skills": [92, 96, 100],
+		"stat_table": [24, 30, 24, 21, 23, 23],
 		"resistances": [1, 1, 1, 1, 1, 1, 3, 3, 3, 3, 3, 3, 3, 3, 3, 1, 0, 0, 3, 3, 3, 3, 3, 3, 2, 1, 0]
 	},
 	{
@@ -2065,6 +2270,7 @@ export default
 		"exp_table": 24,
 		"percent_f": 0,
 		"skills": [6, 91, 100],
+		"stat_table": [20, 30, 20, 20, 22, 21],
 		"resistances": [1, 1, 1, 2, 0, 2, 3, 3, 3, 2, 3, 3, 2, 2, 3, 1, 1, 1, 3, 3, 3, 3, 3, 3, 0, 0, 0]
 	},
 	{
@@ -2075,6 +2281,7 @@ export default
 		"exp_table": 25,
 		"percent_f": 0,
 		"skills": [96, 101, 128],
+		"stat_table": [24, 30, 26, 21, 23, 23],
 		"resistances": [1, 2, 3, 3, 1, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 2, 2, 2, 3, 3, 3, 3, 3, 3, 2, 1, 0]
 	},
 	{
@@ -2085,6 +2292,7 @@ export default
 		"exp_table": 24,
 		"percent_f": 0,
 		"skills": [80, 92, 100],
+		"stat_table": [21, 30, 26, 21, 23, 23],
 		"resistances": [1, 1, 1, 1, 0, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 1, 0, 0, 3, 3, 3, 3, 3, 3, 2, 1, 0]
 	},
 	{
@@ -2095,6 +2303,7 @@ export default
 		"exp_table": 31,
 		"percent_f": 0,
 		"skills": [87, 128, 217],
+		"stat_table": [29, 30, 26, 24, 23, 23],
 		"resistances": [1, 2, 2, 2, 0, 1, 3, 3, 3, 3, 3, 3, 2, 2, 3, 1, 2, 1, 3, 2, 3, 3, 3, 3, 1, 1, 0]
 	},
 	{
@@ -2106,6 +2315,7 @@ export default
 		"exp_table": 30,
 		"percent_f": 0,
 		"skills": [0, 6, 15],
+		"stat_table": [21, 30, 26, 21, 23, 23],
 		"resistances": [2, 2, 2, 1, 2, 2, 3, 3, 3, 2, 3, 3, 3, 3, 3, 1, 1, 2, 3, 2, 3, 3, 3, 3, 1, 1, 0]
 	},
 	{
@@ -2117,6 +2327,7 @@ export default
 		"exp_table": 31,
 		"percent_f": 0,
 		"skills": [67, 92, 128],
+		"stat_table": [29, 30, 26, 21, 23, 23],
 		"resistances": [2, 2, 2, 0, 0, 0, 3, 3, 3, 3, 3, 3, 2, 2, 3, 1, 3, 1, 3, 3, 3, 3, 3, 3, 1, 1, 0]
 	},
 	{
@@ -2127,6 +2338,7 @@ export default
 		"exp_table": 28,
 		"percent_f": 0,
 		"skills": [92, 96, 108],
+		"stat_table": [21, 30, 26, 24, 23, 23],
 		"resistances": [1, 1, 1, 3, 0, 1, 3, 3, 3, 2, 3, 3, 2, 3, 3, 0, 3, 3, 3, 2, 3, 3, 3, 3, 0, 0, 0]
 	},
 	{
@@ -2138,6 +2350,7 @@ export default
 		"exp_table": 27,
 		"percent_f": 0,
 		"skills": [100, 101, 132],
+		"stat_table": [21, 30, 26, 21, 23, 23],
 		"resistances": [1, 2, 2, 1, 1, 2, 3, 3, 3, 2, 3, 3, 3, 3, 3, 1, 1, 2, 3, 2, 3, 3, 3, 3, 1, 0, 0]
 	},
 	{
@@ -2149,6 +2362,7 @@ export default
 		"exp_table": 29,
 		"percent_f": 0,
 		"skills": [60, 92, 130],
+		"stat_table": [24, 30, 26, 21, 23, 23],
 		"resistances": [2, 2, 2, 1, 1, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 1, 1, 2, 3, 2, 3, 3, 3, 3, 2, 1, 0]
 	},
 	{
@@ -2160,6 +2374,7 @@ export default
 		"exp_table": 31,
 		"percent_f": 0,
 		"skills": [84, 101, 128],
+		"stat_table": [29, 30, 30, 24, 23, 23],
 		"resistances": [2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 2, 2, 3, 1, 2, 2, 3, 3, 3, 3, 3, 3, 3, 2, 0]
 	},
 	{
@@ -2170,6 +2385,7 @@ export default
 		"exp_table": 30,
 		"percent_f": 0,
 		"skills": [15, 92, 96],
+		"stat_table": [31, 30, 31, 24, 23, 23],
 		"resistances": [2, 2, 2, 2, 2, 3, 3, 3, 2, 2, 3, 3, 2, 3, 3, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 0]
 	},
 	{
@@ -2180,6 +2396,7 @@ export default
 		"exp_table": 0,
 		"percent_f": 0,
 		"skills": [0, 0, 0],
+		"stat_table": [0, 0, 0, 0, 0, 0],
 		"resistances": [1, 2, 1, 1, 0, 1, 2, 3, 3, 1, 1, 2, 0, 0, 2, 0, 1, 1, 0, 3, 0, 1, 0, 0, 1, 1, 0]
 	},
 	{
@@ -2190,6 +2407,7 @@ export default
 		"exp_table": 0,
 		"percent_f": 0,
 		"skills": [0, 0, 0],
+		"stat_table": [0, 0, 0, 0, 0, 0],
 		"resistances": [1, 1, 2, 2, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0]
 	},
 	{
@@ -2200,6 +2418,7 @@ export default
 		"exp_table": 0,
 		"percent_f": 0,
 		"skills": [0, 0, 0],
+		"stat_table": [0, 0, 0, 0, 0, 0],
 		"resistances": [3, 2, 2, 0, 0, 1, 1, 1, 2, 1, 0, 1, 1, 1, 0, 0, 3, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0]
 	},
 	{
@@ -2210,6 +2429,7 @@ export default
 		"exp_table": 0,
 		"percent_f": 0,
 		"skills": [0, 0, 0],
+		"stat_table": [0, 0, 0, 0, 0, 0],
 		"resistances": [1, 2, 1, 3, 0, 1, 2, 2, 3, 1, 1, 1, 0, 1, 0, 0, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 0]
 	},
 	{
@@ -2220,6 +2440,7 @@ export default
 		"exp_table": 0,
 		"percent_f": 0,
 		"skills": [0, 0, 0],
+		"stat_table": [0, 0, 0, 0, 0, 0],
 		"resistances": [1, 2, 2, 1, 2, 3, 3, 3, 3, 2, 2, 2, 2, 2, 1, 0, 1, 3, 2, 2, 2, 2, 2, 2, 2, 2, 0]
 	},
 ]
